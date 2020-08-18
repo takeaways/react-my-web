@@ -5,7 +5,10 @@ import styled from 'styled-components';
 function TopBar() {
   return (
     <Navbar>
-      <Logo>로고 입니다.</Logo>
+      <Link to='/' style={{ display: 'flex', alignItems: 'center' }}>
+        <Logo src={'images/mylogo.png'} alt='logo image' />
+        <Title>Geonil Jang</Title>
+      </Link>
       <LinkList>
         {LINKS.map((item) => (
           <LinkItem key={item.title}>
@@ -39,7 +42,16 @@ const Navbar = styled.nav`
   font-size: var(--font-regular);
 `;
 
-const Logo = styled.div``;
+const Logo = styled.img`
+  width: 35px;
+  height: 35px;
+  margin: 0;
+`;
+
+const Title = styled.span`
+  font-size: var(--font-medium);
+  font-weight: var(--weight-bold);
+`;
 const LinkList = styled.ul`
   display: flex;
   justify-content: space-evenly;
@@ -50,6 +62,10 @@ const LinkItem = styled.li`
   cursor: pointer;
   border-radius: var(--size-border-radius);
   border: 1px solid transparent;
+  &:hover {
+    border: 1px solid var(--color-white);
+    background-color: var(--color-pink);
+  }
 `;
 
 export default React.memo(TopBar);
