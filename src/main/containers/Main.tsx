@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react';
+import Introduce from '../components/Introduce';
 
-export default function Main(){
-  return <h1>Main</h1>
+export default function Main() {
+  return (
+    <>
+      <Introduce />
+    </>
+  );
 }
