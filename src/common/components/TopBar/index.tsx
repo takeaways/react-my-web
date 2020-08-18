@@ -7,7 +7,7 @@ function TopBar() {
     <Navbar>
       <Link to='/' style={{ display: 'flex', alignItems: 'center' }}>
         <Logo src={'images/mylogo.png'} alt='logo image' />
-        <Title>Geonil Jang</Title>
+        <Title>Geonil Jang(FE)</Title>
       </Link>
       <LinkList>
         {LINKS.map((item) => (
