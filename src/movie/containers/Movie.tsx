@@ -3,8 +3,9 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Home from '../routes/Home';
 import Detail from '../routes/Detail';
-import { ApolloProvider } from 'react-apollo';
-import client from '../apollo';
+import { ApolloProvider } from '@apollo/client';
+
+import client from '../apollo/index';
 
 function Movie() {
   return (
