@@ -22,7 +22,7 @@ function TopBar() {
 
 const LINKS = [
   { to: '/home', title: 'Home' },
-  { to: '/', title: 'About' },
+  { to: '/movie', title: 'Movie' },
   { to: '/', title: 'Skills' },
   { to: '/', title: 'My Work' },
   { to: '/', title: 'Contact' },

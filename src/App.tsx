@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import PageContainer from './common/components/PageContainer';
 import TopBar from './common/components/TopBar';
 
 import Main from './main/containers/Main';
-import PageContainer from './common/components/PageContainer';
+import Movie from './movie/containers/Movie';
+
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <TopBar />
       <PageContainer>
         <Switch>
-          <Route path='/' component={Main} />
+          <Route exact path='/' component={Main} />
+          <Route exact path='/movie' component={Movie} />
         </Switch>
       </PageContainer>
     </BrowserRouter>
