@@ -23,5 +23,16 @@
 1. graphql을 사용해 봅니다.
    - [graphql](https://www.apollographql.com/, 'graphql link')
    ```bash
-   npm install apollo-boost @apollo/react-hooks graphql
+   npm install apollo-boost react-apollo graphql
    ```
+2. REST API는 다른 방식으로 사용합니다.
+   - query를 작성한다.
+   ```graphql
+   {movies:{
+      id
+      description
+      title
+   }}
+   ```
+   - POST : request를 보낸다.
+   - 클라이언트를 만든다. with "apollo-boost"
