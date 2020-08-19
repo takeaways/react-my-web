@@ -21,10 +21,11 @@
 ### GraphQL
 
 1. graphql을 사용해 봅니다.
+2. movieql-server start at port 4000
 
    - [graphql](https://www.apollographql.com/docs/react/get-started, 'graphql link')
 
-2. REST API는 다른 방식으로 사용합니다.
+3. REST API는 다른 방식으로 사용합니다.
    - query를 작성한다.
    ```graphql
    {movies:{
