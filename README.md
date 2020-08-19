@@ -17,3 +17,11 @@
    $npm install styled-components
    $npm install @types/styled-components
    ```
+
+### GraphQL
+
+1. graphql을 사용해 봅니다.
+   - [graphql](https://www.apollographql.com/, 'graphql link')
+   ```bash
+   npm install apollo-boost @apollo/react-hooks graphql
+   ```
