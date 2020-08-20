@@ -7,7 +7,8 @@ import TopBar from './common/components/TopBar';
 import Main from './main/containers/Main';
 import Movie from './movie/containers/Movie';
 
-
+const name = "go";
+console.log("s")
 function App() {
   return (
     <BrowserRouter>

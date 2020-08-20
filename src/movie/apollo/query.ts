@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const GET_MOVIEE = gql`
+export const GET_MOVIE = gql`
   {
     movies {
       id

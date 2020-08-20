@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import * as Query from '../apollo/query';
 import styled from 'styled-components';
+import * as Query from '../apollo/query';
 
 const Container = styled.div``;
 const Header = styled.header`
@@ -26,7 +26,7 @@ const Title = styled.h1`
 const Subtitle = styled.h2``;
 
 function Home() {
-  const { loading, data } = useQuery(Query.GET_MOVIEE);
+  const { loading, data } = useQuery(Query.GET_MOVIE);
   return (
     <Container>
       <Header>
