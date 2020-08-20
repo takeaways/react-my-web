@@ -5,8 +5,8 @@ import styled from 'styled-components';
 function TopBar() {
   return (
     <Navbar>
-      <Link to='/' style={{ display: 'flex', alignItems: 'center' }}>
-        <Logo src={'images/mylogo.png'} alt='logo image' />
+      <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+        <Logo src={'images/mylogo.png'} alt="logo image" />
         <Title>Geonil Jang(FE)</Title>
       </Link>
       <LinkList>
@@ -31,6 +31,7 @@ const LINKS = [
 const Navbar = styled.nav`
   position: fixed;
   width: 100%;
+  height: 68px;
   display: flex;
   justify-content: space-between;
   background-color: var(--color-dark-pink);
