@@ -2,22 +2,17 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import PageContainer from './common/components/PageContainer';
-import TopBar from './common/components/TopBar';
+import TopBar from './common/components/PageTopBar';
 
 import Main from './main/containers/Main';
-import Movie from './movie/containers/Movie';
+import PageRouter from './common/components/PageRouter';
 
-const name = "go";
-console.log("s")
 function App() {
   return (
     <BrowserRouter>
       <TopBar />
       <PageContainer>
-        <Switch>
-          <Route exact path='/' component={Main} />
-          <Route exact path='/movie' component={Movie} />
-        </Switch>
+        <PageRouter />
       </PageContainer>
     </BrowserRouter>
   );
