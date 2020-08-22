@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 export default function PageRouter() {
+  console.log('PageRouter');
   return (
     <Switch>
       {ROUTES.map((route, i) => {
