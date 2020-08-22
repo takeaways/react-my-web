@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Switch, Route, Router } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import MovieList from '../../movie/containers/MovieList';
 import MovieDetail from '../../movie/containers/MovieDetail';
@@ -14,9 +14,9 @@ export default function PageRouter() {
     <Switch>
       {ROUTES.map((route, i) =>
         route.private ? (
-          <PrivateRoute exact path={route.path} component={route.component} />
+          <PrivateRoute key={i} exact path={route.path} component={route.component} />
         ) : (
-          <PublicRoute exact={route.exact} path={route.path} component={route.component} />
+          <PublicRoute key={i} exact={route.exact} path={route.path} component={route.component} />
         ),
       )}
       <Route path="*">
@@ -39,19 +39,5 @@ export const ROUTES = [
     name: 'Movie',
     private: false,
     component: Movie,
-    routes: [
-      {
-        path: '/movie/list',
-        name: 'MovieList',
-        component: MovieList,
-        private: false,
-      },
-      {
-        path: '/movie/:id',
-        name: 'MovieDetail',
-        component: MovieDetail,
-        private: false,
-      },
-    ],
   },
 ];

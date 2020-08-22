@@ -2,21 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-function Header() {
+interface HeaderProps {
+  routes: { to: string; label: string }[];
+}
+
+const Header: React.FC<HeaderProps> = ({ routes }) => {
   return (
     <Container>
       <Menu>
-        {SUB_LINKS.map((link) => (
-          <Item key={link.id}>
-            <Link to={`/movie${link.to}`}>{link.id}</Link>
+        {routes.map((link) => (
+          <Item key={link.label}>
+            <Link to={`${link.to}`}>{link.label}</Link>
           </Item>
         ))}
       </Menu>
     </Container>
   );
-}
-
-const SUB_LINKS = [{ id: 1, to: '/list' }];
+};
 
 const Container = styled.header`
   height: 48px;
@@ -34,12 +36,21 @@ const Menu = styled.ul`
 const Item = styled.li`
   & > a {
     display: block;
+    text-align: center;
+    line-height: 22px;
     width: 120px;
     height: 38px;
     margin: 0 4px;
     padding: 8px;
     border-radius: 15px;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(199, 199, 199, 0.66);
+    -moz-box-shadow: 0px 0px 0px 2px rgba(199, 199, 199, 0.66);
+    box-shadow: 0px 0px 0px 2px rgba(199, 199, 199, 0.66);
+  }
+  & > a:hover {
+    color: var(--color-white);
+    background-color: rgba(199, 199, 199, 0.5);
   }
 `;
 
-export default Header;
+export default React.memo(Header);
