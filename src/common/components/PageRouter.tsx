@@ -1,34 +1,37 @@
-import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import React, { lazy } from 'react';
+import { Switch, Route, Router } from 'react-router-dom';
 
-import Main from '../../main/containers/Main';
-import Movie from '../../movie/page/Movie';
 import MovieList from '../../movie/containers/MovieList';
 import MovieDetail from '../../movie/containers/MovieDetail';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
+const Movie = lazy(() => import('../../movie/page/Movie'));
+const Main = lazy(() => import('../../main/page/Main'));
+
 export default function PageRouter() {
-  console.log('PageRouter');
   return (
     <Switch>
-      {ROUTES.map((route, i) => {
-        console.log(route.name);
-        return route.private ? (
-          <PrivateRoute key={route.name} {...route} />
+      {ROUTES.map((route, i) =>
+        route.private ? (
+          <PrivateRoute exact path={route.path} component={route.component} />
         ) : (
-          <PublicRoute key={route.name} {...route} />
-        );
-      })}
+          <PublicRoute exact={route.exact} path={route.path} component={route.component} />
+        ),
+      )}
+      <Route path="*">
+        <p>Not Found</p>
+      </Route>
     </Switch>
   );
 }
 
 export const ROUTES = [
   {
-    path: '/main',
+    path: '/',
     name: 'Home',
     private: false,
+    exact: true,
     component: Main,
   },
   {

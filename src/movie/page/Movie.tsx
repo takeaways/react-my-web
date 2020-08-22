@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../components/Header';
+import { Switch, Route } from 'react-router-dom';
+import * as Type from '../../common/Types';
+import MovieList from '../containers/MovieList';
 
-const Movie: React.FC<any> = ({ route }) => {
-  console.log('Ddd');
+export default function Movie() {
   return (
     <>
       <Header />
-      <p>s</p>
+      <Route exact path={'/movie/list'} component={MovieList} />
     </>
   );
-};
-
-export default Movie;
+}

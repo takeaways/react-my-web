@@ -1,20 +1,21 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import PageContainer from './common/components/PageContainer';
 import TopBar from './common/components/PageTopBar';
 
-import Main from './main/containers/Main';
 import PageRouter from './common/components/PageRouter';
 
 function App() {
   return (
-    <BrowserRouter>
-      <TopBar />
-      <PageContainer>
-        <PageRouter />
-      </PageContainer>
-    </BrowserRouter>
+    <Suspense fallback={<h1>Loading....</h1>}>
+      <BrowserRouter>
+        <TopBar />
+        <PageContainer>
+          <PageRouter />
+        </PageContainer>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 

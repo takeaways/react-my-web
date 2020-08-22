@@ -21,11 +21,11 @@ function TopBar() {
 }
 
 const LINKS = [
-  { to: '/home', title: 'Home' },
+  { to: '/', title: 'Main' },
   { to: '/movie', title: 'Movie' },
-  { to: '/', title: 'Skills' },
-  { to: '/', title: 'My Work' },
-  { to: '/', title: 'Contact' },
+  { to: '/skill', title: 'Skills' },
+  { to: '/work', title: 'My Work' },
+  { to: '/contact', title: 'Contact' },
 ];
 
 const Navbar = styled.nav`

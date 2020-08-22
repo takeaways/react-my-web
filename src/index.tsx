@@ -13,5 +13,5 @@ ReactDOM.render(
     <GlobalStyles />
     <App />
   </Provider>,
-  document.querySelector('#root')
+  document.querySelector('#root'),
 );

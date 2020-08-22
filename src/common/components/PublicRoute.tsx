@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import * as Types from '../Types';
 
-const PublicRoute: React.FC<Types.Route> = (route) => {
-  console.log('----------');
-  return (
-    <Route
-      exact
-      path={route.path}
-      render={(props) => <route.component {...props} route={route} />}
-    />
-  );
+interface PublicRouteProps {
+  component: any;
+  exact?: any;
+  path: string;
+}
+
+const PublicRoute: React.FC<PublicRouteProps> = ({ component: Component, ...rest }) => {
+  useEffect(() => {
+    console.log('PublicRoute');
+  }, []);
+
+  return <Route {...rest} render={(props) => <Component {...rest} {...props} />} />;
 };
 
 export default PublicRoute;
