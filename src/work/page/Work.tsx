@@ -6,7 +6,10 @@ import TransferList, { useTransfer } from '../../common/components/Styles/Transf
 function Work() {
   const { select, handleSelect } = useSelect<string>(setSelect(SELECT));
   const { value, handleValue } = useInput();
-  const { right, left, handleLeft, handleRight } = useTransfer<number>([1, 2, 3, 4], [5, 6, 7, 8]);
+  const { right, left, handleLeft, handleRight } = useTransfer<string>(
+    ['Item1', 'Item2', 'Item3', 'Item4'],
+    [],
+  );
 
   return (
     <div

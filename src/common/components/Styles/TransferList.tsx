@@ -25,29 +25,29 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function not(a: number[], b: number[]) {
+function not(a: string[], b: string[]) {
   return a.filter((value) => b.indexOf(value) === -1);
 }
 
-function intersection(a: number[], b: number[]) {
+function intersection(a: string[], b: string[]) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
 
 interface TransferListProps {
-  right: number[];
-  left: number[];
-  setRight: React.Dispatch<React.SetStateAction<number[]>>;
-  setLeft: React.Dispatch<React.SetStateAction<number[]>>;
+  right: string[];
+  left: string[];
+  setRight: React.Dispatch<React.SetStateAction<string[]>>;
+  setLeft: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export default function TransferList({ left, right, setLeft, setRight }: TransferListProps) {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState<number[]>([]);
+  const [checked, setChecked] = React.useState<string[]>([]);
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
 
-  const handleToggle = (value: number) => () => {
+  const handleToggle = (value: string) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
 
@@ -72,10 +72,10 @@ export default function TransferList({ left, right, setLeft, setRight }: Transfe
     setChecked(not(checked, rightChecked));
   };
 
-  const customList = (items: number[]) => (
+  const customList = (items: string[]) => (
     <Paper className={classes.paper}>
       <List dense component="div" role="list">
-        {items.map((value: number) => {
+        {items.map((value: string) => {
           const labelId = `transfer-list-item-${value}-label`;
           return (
             <ListItem
@@ -85,7 +85,7 @@ export default function TransferList({ left, right, setLeft, setRight }: Transfe
               button
               onClick={handleToggle(value)}
             >
-              <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+              <ListItemText id={labelId} primary={`${value}`} />
             </ListItem>
           );
         })}
