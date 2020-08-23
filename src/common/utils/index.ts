@@ -4,3 +4,11 @@ export const headerFilter = (routes: { path: string; name: string }[]) => {
     label: item.name,
   }));
 };
+
+export const setSelect = (selects: { name: string }[]) => {
+  const obj: { [key: string]: string } = {};
+  selects.forEach((item) => {
+    obj[item.name] = '';
+  });
+  return obj;
+};
