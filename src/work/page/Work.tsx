@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import Select, { setSelect, useSelect } from '../../common/components/Styles/Select';
+import Input, { useInput } from '../../common/components/Styles/Input';
+import TransferList, { useTransfer } from '../../common/components/Styles/TransferList';
 
 function Work() {
   const { select, handleSelect } = useSelect<string>(setSelect(SELECT));
-  console.log(select);
+  const { value, handleValue } = useInput();
+  const { right, left, handleLeft, handleRight } = useTransfer<number>([1, 2, 3, 4], [5, 6, 7, 8]);
 
   return (
     <div
       style={{
         height: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
       }}
     >
+      <Input label="workerID" value={value} onChange={handleValue} />
       {SELECT.map((item, i) => {
         return (
           <Select
@@ -26,6 +31,9 @@ function Work() {
           />
         );
       })}
+      <div>
+        <TransferList left={left} right={right} setLeft={handleLeft} setRight={handleRight} />
+      </div>
     </div>
   );
 }

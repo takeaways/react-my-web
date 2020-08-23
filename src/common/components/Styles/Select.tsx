@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
-export * from '../../hooks/useHandler';
+export * from '../../hooks/useSelect';
 export const setSelect = (selects: { name: string }[]) => {
   const obj: { [key: string]: string } = {};
   selects.forEach((item) => {
