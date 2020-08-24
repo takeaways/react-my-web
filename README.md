@@ -9,16 +9,63 @@
    $npx create-react-app --template typescript
    ```
 2. 왜 유용한가?
+
    - create-react-app 패키지로 만든 프로젝트는 복잡한 애플리케이션 개밸을 위해 설계됐으며, 개발, 테스트, 배포를 위한 일체의 수단을 제공한다.
+
+3. 리액트 프로젝트 구조
+   - node_modules
+     - 애플리케이션과 개발 도구가 필요로 하는 패키지들의 위치하는 폴더
+   - public
+     - 정적콘텐츠가 위치하는 폴더로 HTTP요청에 응답할 때 사용되는 index.html파일을 포함한다.
+   - src
+     - 애플리케이션 코드와 콘텐츠가 위치하는 폴더.
+   - .gitignore
+     - 깃(git)이 버전관리에서 제외 시킬 파일과 폴더를 기술하는 파일이다.
+   - package.json
+     - 프로젝트를 위한 의존성의 젠체 목록을 포함하는 파일.
+     - ~: 마이너 버전이 다르면 수용하지 않는다.
+     - ^: 메이저 버전이 다르면 수용하지 않는다.
+   - package-lock.json
+     - 프로젝트를 위한 의존성의 전체 목록을 포함하는 파일.
+   - REACDME.md
+     - 개발 도구에 관한 정보를 포함하는 파일
+4. babel
+   - 1. JSX콘텐프를 변환하는 작업
+   - 2. 구식 브라우저에서도 최신의 자바스크립트 기능이 실행될 수 있게 자바스크립터 코드를 변환하는 작업
+5. JSX
+
+   - 1. HTML과 Javascript를 혼합할 수 있게 하는, 자바스크립트의 상위 집합이다.
+
+     ```jsx
+     import React from 'react';
+     export default function App() {
+       return <h1 className="main">hello world</h1>;
+     }
+
+     //
+     import React from 'react';
+     export default function App() {
+       return React.createElement(
+         'h1',
+         {
+           className: 'main',
+         },
+         'hello world',
+       );
+     }
+     ```
+
+6. ESLint
+   - [ESLint]('https://eslint.org/docs/rule')
 
 ### styled-components
 
 1. css-in-js를 위한 컴포넌트 구현을 위하여 스타일 컴포넌트를 사용합니다.
    - [styled-components](https://styled-components.com/, 'styled-components link')
-   ```bash
-   $npm install styled-components
-   $npm install @types/styled-components
-   ```
+     ```bash
+     $npm install styled-components
+     $npm install @types/styled-components
+     ```
 
 ### GraphQL
 

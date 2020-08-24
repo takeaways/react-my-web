@@ -8,7 +8,15 @@ interface MyInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 function MyInput({ label, value, onChange }: MyInputProps) {
-  return <TextField id={`${label}`} label={label} value={value} onChange={onChange} />;
+  return (
+    <TextField
+      style={{ width: '100%' }}
+      id={`${label}`}
+      label={label}
+      value={value}
+      onChange={onChange}
+    />
+  );
 }
 
 export default MyInput;

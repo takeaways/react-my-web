@@ -9,6 +9,7 @@ import PublicRoute from './PublicRoute';
 const Movie = lazy(() => import('../../movie/page/Movie'));
 const Main = lazy(() => import('../../main/page/Main'));
 const Work = lazy(() => import('../../work/page/Work'));
+const Skills = lazy(() => import('../../skills/page/Skills'));
 
 export default function PageRouter() {
   return (
@@ -46,5 +47,11 @@ export const ROUTES = [
     name: 'Work',
     private: false,
     component: Work,
+  },
+  {
+    path: '/skill',
+    name: 'Skills',
+    private: false,
+    component: Skills,
   },
 ];

@@ -21,7 +21,7 @@ function Work() {
         alignItems: 'center',
       }}
     >
-      <Input label="workerID" value={value} onChange={handleValue} />
+      <Input label="workerID" value={value} onChange={(e) => handleValue(e.target.value)} />
       {SELECT.map((item, i) => {
         return (
           <Select
