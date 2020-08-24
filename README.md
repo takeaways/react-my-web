@@ -8,6 +8,8 @@
    //타입 스크립트 셋팅을 같이 진행 하기 위해서 다음을 실행 합니다.
    $npx create-react-app --template typescript
    ```
+2. 왜 유용한가?
+   - create-react-app 패키지로 만든 프로젝트는 복잡한 애플리케이션 개밸을 위해 설계됐으며, 개발, 테스트, 배포를 위한 일체의 수단을 제공한다.
 
 ### styled-components
 
