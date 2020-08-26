@@ -22,7 +22,7 @@ type todoAction =
   | { type: 'REMOVE'; id: number };
 
 const initialState: Todo = {
-  todos: [...getStorage('todos').todos],
+  todos: [],
 };
 
 const reducer = (state: Todo = initialState, action: todoAction) => {
