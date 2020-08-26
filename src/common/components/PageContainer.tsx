@@ -7,6 +7,7 @@ const PageContainer: React.FC = ({ children }) => {
 
 const Container = styled.div`
   padding-top: 68px;
+  background-color: 'red';
 `;
 
 export default PageContainer;
