@@ -37,6 +37,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
+        /* position: absolute;
+      height: 100%; */
         font-size:var(--font-micro);
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
