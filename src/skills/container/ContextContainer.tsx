@@ -8,7 +8,7 @@ function Context() {
   return (
     <TodoProvider>
       <Container>
-        <h1 key={'SS'}>useReducer + useContext = customHook</h1>
+        <h1 key={'SS'}>useReducer + useContext + LocalStorage</h1>
         <TodoForm />
         <TodoList />
       </Container>

@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, createContext, useRef } from 'react';
+import { setStorage, getStorage } from '../../common/utils';
 
 interface Todo {
   todos: {
@@ -21,19 +22,24 @@ type todoAction =
   | { type: 'REMOVE'; id: number };
 
 const initialState: Todo = {
-  todos: [],
+  todos: [...getStorage('todos').todos],
 };
 
 const reducer = (state: Todo = initialState, action: todoAction) => {
+  const value = getStorage('todos');
+
   switch (action.type) {
     case 'ADD': {
-      return {
+      const newState = {
         ...state,
         todos: state.todos.concat(action.todo),
       };
+
+      setStorage('todos', newState);
+      return newState;
     }
     case 'DONE': {
-      return {
+      const newState = {
         ...state,
         todos: state.todos.map((todo) => {
           if (todo.id !== action.id) {
@@ -45,12 +51,16 @@ const reducer = (state: Todo = initialState, action: todoAction) => {
           };
         }),
       };
+      setStorage('todos', newState);
+      return newState;
     }
     case 'REMOVE': {
-      return {
+      const newState = {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.id),
       };
+      setStorage('todos', newState);
+      return newState;
     }
     default:
       return state;
@@ -76,6 +86,14 @@ export const useTodo = () => {
 export const useTodoDispatch = () => {
   const dispatch = useContext(TodoDispatchContext);
   if (dispatch) return dispatch;
+};
+
+export const useTodoAction = () => {
+  return {
+    add: (todo: { id: number; task: string; done: boolean }): todoAction => ({ type: 'ADD', todo }),
+    remove: (id: number): todoAction => ({ type: 'REMOVE', id }),
+    finish: (id: number): todoAction => ({ type: 'DONE', id }),
+  };
 };
 export const useNextId = () => {
   const nextId = useRef(0);
