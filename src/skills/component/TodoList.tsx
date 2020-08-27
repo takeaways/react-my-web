@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useTodo, useTodoAction, useTodoDispatch } from '../hooks/todoContext';
 import TodoListItem from './TodoListItem';
 import styled from 'styled-components';
@@ -17,23 +17,30 @@ function TodoList() {
     }
   }, []);
 
+  useEffect(() => {
+    if (dispatch) {
+      dispatch(actions.load());
+    }
+  }, []);
+
   return (
     <Container>
       <h1>Todo list</h1>
       <ul>
-        {todos.map((todo) => (
-          <TodoListItem
-            key={todo.id}
-            task={todo.task}
-            onDelete={() => {
-              handleDelete(todo.id);
-            }}
-            onFinish={() => {
-              handleDone(todo.id);
-            }}
-            done={todo.done}
-          />
-        ))}
+        {todos &&
+          todos.map((todo) => (
+            <TodoListItem
+              key={todo.id}
+              task={todo.task}
+              onDelete={() => {
+                handleDelete(todo.id);
+              }}
+              onFinish={() => {
+                handleDone(todo.id);
+              }}
+              done={todo.done}
+            />
+          ))}
       </ul>
     </Container>
   );

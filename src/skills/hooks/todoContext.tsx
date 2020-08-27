@@ -19,16 +19,21 @@ type todoAction =
       };
     }
   | { type: 'DONE'; id: number }
-  | { type: 'REMOVE'; id: number };
+  | { type: 'REMOVE'; id: number }
+  | { type: 'LOAD' };
 
 const initialState: Todo = {
-  todos: [],
+  todos: [...getStorage('todos').todos],
 };
 
 const reducer = (state: Todo = initialState, action: todoAction) => {
-  const value = getStorage('todos');
-
   switch (action.type) {
+    case 'LOAD': {
+      return {
+        ...state,
+        todos: getStorage('todos').todos,
+      };
+    }
     case 'ADD': {
       const newState = {
         ...state,
@@ -90,6 +95,7 @@ export const useTodoDispatch = () => {
 
 export const useTodoAction = () => {
   return {
+    load: (): todoAction => ({ type: 'LOAD' }),
     add: (todo: { id: number; task: string; done: boolean }): todoAction => ({ type: 'ADD', todo }),
     remove: (id: number): todoAction => ({ type: 'REMOVE', id }),
     finish: (id: number): todoAction => ({ type: 'DONE', id }),
