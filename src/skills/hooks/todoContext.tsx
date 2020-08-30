@@ -23,7 +23,7 @@ type todoAction =
   | { type: 'LOAD' };
 
 const initialState: Todo = {
-  todos: [...getStorage('todos').todos],
+  todos: [],
 };
 
 const reducer = (state: Todo = initialState, action: todoAction) => {
@@ -31,7 +31,7 @@ const reducer = (state: Todo = initialState, action: todoAction) => {
     case 'LOAD': {
       return {
         ...state,
-        todos: getStorage('todos').todos,
+        todos: getStorage('todos') ? getStorage('todos').todos : [],
       };
     }
     case 'ADD': {
