@@ -1,9 +1,9 @@
 import { AppState, Priority } from './type';
 import { waitForInput } from './input';
 import Todo from './Todo';
-import { CommandPrintTodos, Command } from './Command';
+import { CommandPrintTodos, Command, CommandNewTodo } from './Command';
 
-const commands: Command[] = [new CommandPrintTodos()];
+const commands: Command[] = [new CommandPrintTodos(), new CommandNewTodo()];
 async function main() {
   const state: AppState = {
     todos: [
