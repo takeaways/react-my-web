@@ -85,3 +85,26 @@
    ```
    - POST : request를 보낸다.
    - 클라이언트를 만든다. with "apollo-boost"
+
+### 성능최적화
+
+1. 사용자가 오래 머무르면, 서비스 가치가 올라간다.
+2. 프론트엔트 개발자로서, "경쟁력"을 각추기 위해
+
+- 브라우저의 렌더링 원리
+- Performance 패널의 이용한 분석
+- Lighthouse 패널을 이용한 분석
+- Network 패널을 이용한 분석
+- webpack-bundle-analyzer를 이용한 분석
+- 텍스트 압축
+- 이미지 사이즈 최적화
+- 적절한 사이즈로 변환
+- 이미지 CDN을 통한 최적화
+- 리소스 캐싱
+- 이미지 preload
+- 컴포넌트 preload
+- component Lazy Load
+- React code Splitting
+- Image Lazy Load
+- 병목코드 제거
+- repaint, reflow 줄이기
