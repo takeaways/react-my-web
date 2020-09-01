@@ -90,21 +90,28 @@
 
 1. 사용자가 오래 머무르면, 서비스 가치가 올라간다.
 2. 프론트엔트 개발자로서, "경쟁력"을 각추기 위해
-
-- 브라우저의 렌더링 원리
-- Performance 패널의 이용한 분석
-- Lighthouse 패널을 이용한 분석
-- Network 패널을 이용한 분석
-- webpack-bundle-analyzer를 이용한 분석
-- 텍스트 압축
-- 이미지 사이즈 최적화
-- 적절한 사이즈로 변환
-- 이미지 CDN을 통한 최적화
-- 리소스 캐싱
-- 이미지 preload
-- 컴포넌트 preload
-- component Lazy Load
-- React code Splitting
-- Image Lazy Load
-- 병목코드 제거
-- repaint, reflow 줄이기
+   - 브라우저의 렌더링 원리
+   - Performance 패널의 이용한 분석
+   - Lighthouse 패널을 이용한 분석
+   - Network 패널을 이용한 분석
+   - webpack-bundle-analyzer를 이용한 분석
+   - 텍스트 압축
+   - 이미지 사이즈 최적화
+   - 적절한 사이즈로 변환
+   - 이미지 CDN을 통한 최적화
+   - 리소스 캐싱
+   - 이미지 preload
+   - 컴포넌트 preload
+   - component Lazy Load
+   - React code Splitting
+   - Image Lazy Load
+   - 병목코드 제거
+   - repaint, reflow 줄이기
+3. 로딩 성능 & 렌더링 성능 (결국에 이 둘을 빠르게 하는 작업을 하는 것이다.)
+   - 어떻게 빠르게 로드하고 빠르게 렌더링 할 것인가
+   1. 로딩 성능 최적화 (다운로드를 최적화 하는 내용)
+      - 이미지 사이즈 최적화
+      - Code Split
+      - 텍스트 압축
+   2. 렌더링 성능 최적화 (서비스를 느리게 동작하게 되는 js코드를 찾아서 최적화 하는 방법)
+      - Bottleneck 코드 최적화
