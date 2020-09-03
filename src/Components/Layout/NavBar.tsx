@@ -52,6 +52,10 @@ const List = styled.ul`
 `
 const Item = styled.li`
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   transition: all 0.4s ease;
 
@@ -59,7 +63,7 @@ const Item = styled.li`
   &::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     height: 3px;
     width: 1px;
