@@ -74,13 +74,13 @@ const Item = styled.li`
   }
 
   &:hover::after {
-    transform: scaleX(100);
+    transform: scaleX(90);
   }
 
   &.active {
     color: var(--color-red);
     &::after {
-      transform: scaleX(100);
+      transform: scaleX(90);
     }
   }
 `
