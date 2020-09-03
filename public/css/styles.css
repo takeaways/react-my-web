@@ -1,0 +1,61 @@
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-black: #4d4d4d;
+  --color-yellow: #fedba3;
+  --color-red: #fe9c86;
+  --color-pink: #f6e3e9;
+  --color-purple: #a5a6e6;
+  --color-light-purple: #d4cdf6;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+  /* Font weight */
+  --weight-bold: 600;
+  --weight-semi-bold: 500;
+  --weight-regular: 400;
+  /* Size */
+  --size-border-radius: 5px;
+  /* Animation */
+  --animation-duration: 250ms;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  #root {
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  #root {
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 640px) {
+  #root {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-rows: 1fr 0.5fr 7fr 1fr;
+
+    min-width: 360px;
+  }
+}

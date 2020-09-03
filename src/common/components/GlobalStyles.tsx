@@ -1,38 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
-    :root {
-	    /* Color */
-      --color-white: #ffffff;
-      --color-light-white: #eeeeee;
-      --color-dark-white: #bdbdbd;
-      --color-pink: #fe918d;
-      --color-dark-pink: #ff6863;
-      --color-black: #4d4d4d;
-      --color-dark-grey: #4d4d4d;
-      --color-grey: #616161;
-      --color-light-grey: #7c7979;
-      --color-blue: #73aace;
-      --color-yellow: #fff7d1;
-      --color-orange: #feb546;
-      --color-black: #000000;
-      /* Font size */
-      --font-large: 48px;
-      --font-medium: 28px;
-      --font-regular: 18px;
-      --font-small: 16px;
-      --font-micro: 14px;
-      /* Font weight */
-      --weight-bold: 700;
-      --weight-semi-bold: 600;
-      --weight-regular: 400;
-      /* Size */
-      --size-border-radius: 4px;
-      /* Animation */
-      --animation-duration: 250ms;
-    }
+    
     *{
         box-sizing:border-box;
     }
@@ -61,6 +32,6 @@ const GlobalStyles = createGlobalStyle`
     h1, h2, h3, h4, h5, h6 {
     font-family:'Maven Pro', sans-serif;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles
