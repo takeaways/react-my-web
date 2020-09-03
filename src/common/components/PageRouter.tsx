@@ -1,8 +1,7 @@
 import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import MovieList from '../../movie/containers/MovieList';
-import MovieDetail from '../../movie/containers/MovieDetail';
+
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 

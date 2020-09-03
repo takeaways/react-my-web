@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 interface HeaderProps {
+  
   routes: { to: string; label: string }[];
 }
 
 const Header: React.FC<HeaderProps> = ({ routes }) => {
   return (
+
     <Container>
       <Menu>
         {routes.map((link) => (
