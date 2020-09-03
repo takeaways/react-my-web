@@ -1,22 +1,22 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import PageContainer from './common/components/PageContainer';
-import TopBar from './common/components/PageTopBar';
-
-import PageRouter from './common/components/PageRouter';
+import React from 'react'
+import { Header, NavBar, Main, Footer } from './Components/Layout'
+import MainRouter from './Routes'
 
 function App() {
   return (
-    <Suspense fallback={<h1>Loading....</h1>}>
-      <BrowserRouter>
-        <TopBar />
-        <PageContainer>
-          <PageRouter />
-        </PageContainer>
-      </BrowserRouter>
-    </Suspense>
-  );
+    <>
+      <Header></Header>
+      <NavBar></NavBar>
+      <Main></Main>
+      <Footer></Footer>
+      <nav>nav</nav>
+
+      <main>
+        <MainRouter />
+      </main>
+      <footer>footer</footer>
+    </>
+  )
 }
 
-export default App;
+export default App

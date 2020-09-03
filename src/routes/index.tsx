@@ -1,50 +1,18 @@
-/**
- *
- * React-Router-Dom
- * - Route Config 방식으로 라우팅을 한다.
- *
- */
-import React from 'react'
+import React, { Suspense } from 'react'
+import { BrowserRouter, Switch } from 'react-router-dom'
+import routes from './routes'
+import PublicRoutes from './PublicRoutes'
 
-
-
-
-const routes = [
-  {
-    path: '/main',
-    component: '',
-    routes: [],
-    props: {},
-  },
-  {
-    path: '/movie',
-    component: '',
-    routes: [
-      {
-        path: '/movie/:id',
-        component: '',
-      },
-    ],
-    props: {},
-  },
-  {
-    path: '/skill',
-    component: '',
-    routes: [],
-    props: {},
-  },
-  {
-    path: '/work',
-    component: '',
-    routes: [],
-    props: {},
-  },
-  {
-    path: '/contact',
-    component: '',
-    routes: [],
-    props: {},
-  },
-]
-
-export default routes
+export default function MainRouter() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<h1>Loading....</h1>}>
+        <Switch>
+          {routes.map(route =>
+            false ? null : <PublicRoutes key={route.label} {...route} />,
+          )}
+        </Switch>
+      </Suspense>
+    </BrowserRouter>
+  )
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Work() {
+function Work(props: any) {
+  console.log('-->', props)
   return <div>Work Work</div>
 }
 
