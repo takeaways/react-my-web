@@ -5,6 +5,6 @@ export default function Introduce() {
 }
 
 const Container = styled.article`
-  background-color: red;
+  /* background-color: red; */
   height: 100%;
 `
