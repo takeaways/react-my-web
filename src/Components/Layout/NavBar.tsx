@@ -65,16 +65,13 @@ const Item = styled.li`
     bottom: 0;
     left: 0;
     height: 3px;
-    width: 80%;
+    width: 0px;
     background-color: var(--color-red);
-    /* transform: scaleX(0); */
     transition: all 1s ease;
-    transform-origin: bottom left;
   }
 
   &:hover {
     &::after {
-      /* transform: scaleX(100); */
       width: 100%;
     }
   }
@@ -82,9 +79,7 @@ const Item = styled.li`
   &.active {
     color: var(--color-red);
     &::after {
-      /* transform: scaleX(100); */
-      /* opacity: 1; */
-      /* width: 100%; */
+      width: 100%;
     }
   }
 `
