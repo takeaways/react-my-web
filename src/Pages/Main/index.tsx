@@ -39,7 +39,7 @@ export default React.memo(function Main() {
   return (
     <Container>
       <header className="sr-only">
-        <h1>Main 페이지 입니다.</h1>
+        <h1>Glog Main Page.</h1>
       </header>
       <Suspense fallback={null}>
         <div className="container">
@@ -110,12 +110,19 @@ const Container = styled.section`
     text-align: center;
     font-size: 1rem;
     border-radius: 50%;
+    border: none;
     transition: all 0.3s ease-in;
     opacity: 0.2;
+    outline: none;
+    background-color: var(--color-white);
   }
   #prev:hover,
   #next:hover {
     opacity: 1;
+  }
+  #prev:active,
+  #next:active {
+    opacity: 0.7;
   }
   #prev {
     left: 5%;

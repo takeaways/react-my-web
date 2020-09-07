@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
-
+import Heading from '../common/Heading'
 import routes from '../../Routes/routes'
 import { filterRoutes } from '../../Utils'
 
@@ -22,6 +22,7 @@ export default function NavBar() {
         setPath(e.target.dataset.link)
       }}
     >
+      <Heading heading="네비게이션 메뉴." />
       <List>
         {Links.map(link => (
           <Item
@@ -87,36 +88,3 @@ const LinkItem = styled(Link)`
   display: block;
   width: 100%;
 `
-
-// nav
-//   position: relative
-//   padding-bottom: 12px
-//   .line
-//     height: 2px
-//     position: absolute
-//     bottom: 0
-//     margin: 10px 0 0 0
-//     background: #FF1847
-//   ul
-//     padding: 0
-//     margin: 0
-//     list-style: none
-//     display: flex
-//     li
-//       margin: 0 40px 0 0
-//       opacity: .4
-//       transition: all 0.4s ease
-//       &:hover
-//         opacity: .7
-//       &.active
-//         opacity: 1
-//       &:last-child
-//         margin-right: 0
-//       a
-//         text-decoration: none
-//         color: #fff
-//         text-transform: uppercase
-//         display: block
-//         font-weight: 600
-//         letter-spacing: .2em
-//         font-size: 14px
