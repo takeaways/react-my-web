@@ -110,6 +110,7 @@ const Container = styled.article`
     font-weight: var(--weight-regular);
     color: var(--color-black);
     margin: 4px 0;
+    color: red;
   }
   .skillset {
     display: flex;
