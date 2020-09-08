@@ -11,14 +11,14 @@ const routes = [
     path: '/',
     label: 'Home',
     exact: true,
-    component: lazy(() => import('../Pages/Main')),
+    component: lazy(() => import('../pages/Main')),
     routes: [],
     state: {},
   },
   {
     path: '/movie',
     label: 'Movie',
-    component: lazy(() => import('../Pages/Movie')),
+    component: lazy(() => import('../pages/Movie')),
     routes: [
       {
         path: '/movie/:id',
@@ -30,21 +30,21 @@ const routes = [
   {
     path: '/skill',
     label: 'Skill',
-    component: lazy(() => import('../Pages/Skill')),
+    component: lazy(() => import('../pages/Skill')),
     routes: [],
     props: {},
   },
   {
     path: '/work',
     label: 'Work',
-    component: lazy(() => import('../Pages/Work')),
+    component: lazy(() => import('../pages/Work')),
     routes: [],
     props: {},
   },
   {
     path: '/contact',
     label: 'Contact',
-    component: lazy(() => import('../Pages/Contact')),
+    component: lazy(() => import('../pages/Contact')),
     routes: [],
     props: {},
   },

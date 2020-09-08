@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Heading from '../../../Components/Common/Heading'
+import Heading from '../../../components/common/Heading'
 export default function Introduce() {
   return (
     <Container>
