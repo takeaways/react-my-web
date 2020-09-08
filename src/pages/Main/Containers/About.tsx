@@ -5,8 +5,7 @@ import Heading from '../../../components/common/Heading'
 export default function About() {
   return (
     <Container>
-      <Heading heading="About Me" />
-
+      <h1>About Me</h1>
       <Content>
         사용자가 서비스를 적극적으로 이용할 수 있는 서비스를 만들기 위해
         고민하는 개발자입니다.
@@ -41,39 +40,30 @@ export default function About() {
         </Major>
       </div>
       <div className="about__jobs">
-        <div className="job">
-          <img
-            src="/images/jobs/happytalk.png"
-            alt="happytalk"
-            className="job__logo"
-          />
+        <Job path="/images/kurly.png">
+          <div className="job__description">
+            <p className="job__name">Kurly</p>
+            <p className="job__period">2020.08 ~ </p>
+          </div>
+        </Job>
+        <Job path="/images/happytalk.png">
           <div className="job__description">
             <p className="job__name">Happytalk</p>
-            <p className="job__period">2019.11 ~ 현재</p>
+            <p className="job__period">2019.11 ~ 2020.08</p>
           </div>
-        </div>
-        <div className="job">
-          <img
-            src="/images/jobs/npay.png"
-            alt="happytalk"
-            className="job__logo"
-          />
+        </Job>
+        <Job path="/images/npay.png">
           <div className="job__description">
             <p className="job__name">NIT</p>
             <p className="job__period">2018.12 ~ 2019.11</p>
           </div>
-        </div>
-        <div className="job">
-          <img
-            src="/images/jobs/spring.png"
-            alt="happytalk"
-            className="job__logo"
-          />
+        </Job>
+        <Job path="/images/spring.png">
           <div className="job__description">
             <p className="job__name">Spring Works</p>
             <p className="job__period">2018.06 ~ 2018.12</p>
           </div>
-        </div>
+        </Job>
       </div>
     </Container>
   )
@@ -84,12 +74,21 @@ const Container = styled.article`
   width: 100%;
   overflow: auto;
   padding: 1rem;
+  text-align: left;
+
+  h1 {
+    text-align: center;
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color: var(--color-black);
+    margin: 16px 0;
+  }
 `
 const Content = styled.p`
-  padding: 1rem;
-  border-radius: 15px;
-  background-color: var(--color-light-purple);
-  margin-bottom: 5px;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-red);
+  margin: 4px 0;
 `
 const Major = styled.div`
   margin-bottom: 5px;
@@ -127,5 +126,28 @@ const Major = styled.div`
     & > img:hover {
       transform: rotate(35deg);
     }
+  }
+`
+const Job = styled.div<{ path: string }>`
+  height: 150px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: var(--color-light-purple);
+
+  .job__description {
+    width: 50%;
+    height: 90%;
+    border-radius: 15px;
+    padding: 1rem;
+    background: url(${props => props.path});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--color-purple);
   }
 `

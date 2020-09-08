@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
       height: 100%; */
         font-size:var(--font-micro);
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-family: 'Nanum Gothic', sans-serif;
     }
     a{
         text-decoration:none;

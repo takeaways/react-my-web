@@ -7,8 +7,8 @@ export default function Skills() {
       <h1>Skills</h1>
       <h2>Skills &amp; Attributes</h2>
       <p>
-        모든 것을 다 기억할 수 없지만 빠르게 찾아서 사용하며, 사이드 프로젝트를
-        하면서 학습했던 것을 연습하고 익히고 있습니다.
+        배움을 즐기며, 사이드 프로젝트를 통하여 학습했던 것을 연습하고 익히고
+        있습니다.
       </p>
       <div className="skillset">
         <div className="skillset__left">
@@ -85,7 +85,6 @@ export default function Skills() {
   )
 }
 const Container = styled.article`
-  background-color: blue;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -108,19 +107,65 @@ const Container = styled.article`
   p {
     font-size: var(--font-regular);
     font-weight: var(--weight-regular);
-    color: var(--color-black);
+    color: var(--color-red);
     margin: 4px 0;
-    color: red;
   }
   .skillset {
     display: flex;
-    background-color: var(--color-light-grey);
-    color: var(--color-white);
+    flex-direction: column;
+
+    background-color: var(--color-light-purple);
     margin: 20px 0;
+  }
+
+  .skillset__title {
+    font-size: 1.3rem;
   }
   .skillset__left {
     flex-basis: 60%;
-    background-color: var(--color-dark-grey);
     padding: 20px 40px;
+
+    .skill__description {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .skill {
+      margin-bottom: 32px;
+    }
+    .skill__bar {
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-white);
+    }
+    .skill__value {
+      height: 3px;
+      background-color: var(--color-purple);
+    }
+  }
+  .skillset__right {
+    flex-basis: 60%;
+    background-color: var(--color-red);
+
+    .tools {
+      padding: 1rem 0;
+      background-color: var(--color-purple);
+      .tools__list {
+        margin: 1rem 0;
+        & > li {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .etc {
+      padding: 1rem 0;
+      background-color: var(--color-yellow);
+      .etc__list {
+        margin: 1rem 0;
+        & > li {
+          margin-bottom: 1rem;
+        }
+      }
+    }
   }
 `
