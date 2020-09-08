@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
-import Heading from '../common/Heading'
+import Heading from '../Common/Heading'
 import routes from '../../Routes/routes'
 import { filterRoutes } from '../../Utils'
 

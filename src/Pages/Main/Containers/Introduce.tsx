@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import Heading from '../../../Components/common/Heading'
+import Heading from '../../../Components/Common/Heading'
 export default function Introduce() {
   return (
     <Container>
-      <Heading heading="소개 첫 번째 페이지." />
+      <Heading heading="Introduce." />
       <Content>
-        <H2>Hello, I'm one of the JS developers in Kr.</H2>
+        <H2>
+          <div className="circle"></div>
+          <div className="text"> Hello, I'm one of the JS developers</div>
+        </H2>
       </Content>
     </Container>
   )
@@ -20,7 +23,7 @@ const Container = styled.article`
   background-position: center center;
 `
 
-const Content = styled.p`
+const Content = styled.div`
   color: var(--color-white);
   display: relative;
 `
@@ -28,21 +31,46 @@ const Content = styled.p`
 const H2 = styled.h2`
   position: absolute;
   width: 80%;
-  height: 1.4em;
-  line-height: 1.4em;
-  background: var(--color-purple);
-
   border-radius: 10px;
   font-size: 1.2em;
-  bottom: 10%;
+  bottom: 20%;
   left: calc(10%);
-  &:after {
-    content: '';
+
+  @keyframes ani {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .circle {
     position: absolute;
-    height: 3px;
-    width: 90%;
-    background-color: var(--color-red);
-    top: 1.1em;
-    left: 5%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: var(--color-purple);
+    animation: ani 3s alternate infinite;
+  }
+  .text {
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    margin: auto;
+
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-purple);
   }
 `
