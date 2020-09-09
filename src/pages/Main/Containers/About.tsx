@@ -83,14 +83,56 @@ const Container = styled.article`
     color: var(--color-black);
     margin: 16px 0;
   }
+
+  .about__majors {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .about__majors > div:nth-child(2) {
+    margin: 0 1rem;
+    margin-bottom: 5px;
+  }
+
+  .about__jobs {
+    display: flex;
+  }
+
+  .about__jobs > div:nth-child(2),
+  .about__jobs > div:nth-child(3) {
+    margin: 0 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .about__majors,
+    .about__jobs {
+      flex-direction: column;
+      width: 100%;
+    }
+    .about__majors > div:nth-child(2) {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    .about__jobs > div:nth-child(2),
+    .about__jobs > div:nth-child(3) {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
 `
 const Content = styled.p`
   font-size: var(--font-regular);
   font-weight: var(--weight-regular);
   color: var(--color-red);
   margin: 4px 0;
+  height: 54px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 const Major = styled.div`
+  flex: 1;
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
@@ -129,6 +171,7 @@ const Major = styled.div`
   }
 `
 const Job = styled.div<{ path: string }>`
+  flex: 1;
   height: 150px;
   margin-bottom: 5px;
   display: flex;

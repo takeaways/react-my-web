@@ -113,13 +113,21 @@ const Container = styled.article`
   .skillset {
     display: flex;
     flex-direction: column;
-
     background-color: var(--color-light-purple);
     margin: 20px 0;
   }
 
+  @media (min-width: 480px) {
+    .skillset {
+      flex-direction: row;
+    }
+  }
+
   .skillset__title {
     font-size: 1.3rem;
+  }
+  .skillset__title::before {
+    content: '';
   }
   .skillset__left {
     flex-basis: 60%;

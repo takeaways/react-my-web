@@ -23,6 +23,7 @@ export default function NavBar() {
       }}
     >
       <Heading heading="네비게이션 메뉴." />
+
       <List>
         {Links.map(link => (
           <Item
@@ -43,16 +44,27 @@ const Container = styled.nav`
   -webkit-box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
   -moz-box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
   box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
+
+  form {
+    input {
+    }
+    button {
+    }
+  }
 `
 const List = styled.ul`
+  /*  */
+  background-color: var(--color-light-purple);
+  /*  */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  flex-grow: 1;
 `
 const Item = styled.li`
-  width: 100%;
+  /*  */
+  flex-grow: 1;
+  /*  */
   height: 100%;
   display: flex;
   justify-content: center;
@@ -67,11 +79,16 @@ const Item = styled.li`
     left: 0;
     height: 3px;
     width: 0px;
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
     transition: all 1s ease;
   }
 
   &:hover {
+    /*  */
+    background-color: var(--color-red);
+    flex-grow: 2;
+
+    /*  */
     &::after {
       width: 100%;
     }
@@ -81,10 +98,19 @@ const Item = styled.li`
     color: var(--color-red);
     &::after {
       width: 100%;
+      background-color: var(--color-red);
     }
   }
 `
 const LinkItem = styled(Link)`
   display: block;
-  width: 100%;
+
+  padding: 1em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+
+  &:hover {
+    color: white;
+  }
 `
