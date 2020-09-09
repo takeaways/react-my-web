@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Heading from '../../../components/common/Heading'
 export default function Introduce() {
-  const [show, setShow] = React.useState(true)
+  const [show, setShow] = React.useState(false)
   return (
     <Container>
       <Heading heading="Introduce." />
@@ -38,6 +38,7 @@ const Container = styled.article`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  padding-bottom: 100%;
 
   .modal {
     position: fixed;
