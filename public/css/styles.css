@@ -37,15 +37,21 @@
   width: 100vw;
   height: 100vh;
   font-size: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 7fr 1fr;
 }
 
 @media screen and (min-width: 1024px) {
   #root {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 7fr 0.5fr;
   }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1023px) {
   #root {
+    display: grid;
+    grid-template-rows: 0.7fr 0.5fr 7fr 0.7fr;
   }
 }
 
