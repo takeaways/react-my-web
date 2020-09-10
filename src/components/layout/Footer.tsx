@@ -6,7 +6,7 @@ export default function Footer() {
       <header className="sr-only">
         <h1>최하단 메뉴 입니다.</h1>
       </header>
-      <p>© 2020 GeonilJang | About | Contact</p>
+      <p>© {new Date().getFullYear()} GeonilJang | About | Contact</p>
     </Container>
   )
 }

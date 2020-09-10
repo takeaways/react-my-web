@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 export default function PublicRouters(route: any) {
+  console.log('PublicRouters--->', route)
   return (
     <Route
       path={route.path}

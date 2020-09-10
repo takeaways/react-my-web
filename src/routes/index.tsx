@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import routes from './routes'
 import PublicRoutes from './PublicRoutes'
 
@@ -10,6 +10,7 @@ export default function MainRouter() {
         {routes.map(route =>
           false ? null : <PublicRoutes key={route.label} {...route} />,
         )}
+        <Route component={() => <h1>Not Found</h1>} />
       </Switch>
     </Suspense>
   )

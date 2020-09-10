@@ -45,7 +45,38 @@ const routes = [
     path: '/contact',
     label: 'Contact',
     component: lazy(() => import('../pages/Contact')),
-    routes: [],
+    routes: [
+      {
+        exact: true,
+        path: '/contact',
+        label: 'Contact/Home',
+        component: lazy(() => import('../pages/Contact/containers/Home')),
+      },
+      {
+        path: '/contact/home',
+        label: 'Contact/Home',
+        component: lazy(() => import('../pages/Contact/containers/Home')),
+      },
+      {
+        path: '/contact/auth',
+        label: 'Contact/Auth',
+        component: lazy(() => import('../pages/Contact/containers/Auth')),
+      },
+      {
+        path: '/contact/editProfile',
+        label: 'Contact/EditProfile',
+        isPrivate: true,
+        component: lazy(
+          () => import('../pages/Contact/containers/EditProfile'),
+        ),
+      },
+      {
+        path: '/contact/profile',
+        label: 'Contact/Profile',
+        isPrivate: true,
+        component: lazy(() => import('../pages/Contact/containers/Profile')),
+      },
+    ],
     props: {},
   },
 ]
