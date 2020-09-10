@@ -49,11 +49,7 @@ const routes = [
       {
         exact: true,
         path: '/contact',
-        label: 'Contact/Home',
-        component: lazy(() => import('../pages/Contact/containers/Home')),
-      },
-      {
-        path: '/contact/home',
+        isPrivate: true,
         label: 'Contact/Home',
         component: lazy(() => import('../pages/Contact/containers/Home')),
       },

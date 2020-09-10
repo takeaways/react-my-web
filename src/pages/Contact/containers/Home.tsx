@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { authService } from '../../../myFirebase'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useUserDispatch, LOG_IN } from '../contexts/UserContext'
 function Home() {
-  console.log(authService.currentUser)
+  const dispatch = useUserDispatch()
+  const history = useHistory()
+
   return (
     <div>
       Home Home
