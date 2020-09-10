@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Route, useHistory } from 'react-router-dom'
+import { authService } from '../myFirebase'
 
 export default function PrivateRoutes(route: any) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const history = useHistory()
-
-  if (!isLoggedIn) {
+  if (authService.currentUser) {
     history.push('/contact')
   }
 

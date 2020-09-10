@@ -7,11 +7,10 @@ import { Switch, Route } from 'react-router-dom'
 import PrivateRoutes from '../../routes/PrivateRoutes'
 import PublicRoutes from '../../routes/PublicRoutes'
 
-import firebase from '../../firebase'
+import { authService } from '../../myFirebase'
+import Home from './containers/Home'
 
 export default function Contact({ routes }: any) {
-  console.log(firebase)
-
   return (
     <Suspense fallback={<h1>Loading....</h1>}>
       <Container>
@@ -24,7 +23,7 @@ export default function Contact({ routes }: any) {
               <PublicRoutes key={route.label} {...route} />
             ),
           )}
-          <Route component={() => <h1>Not Found</h1>} />
+          <Route component={() => <Home />} />
         </Switch>
       </Container>
     </Suspense>
