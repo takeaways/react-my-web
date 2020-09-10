@@ -74,7 +74,7 @@ const H2 = styled.h2`
 
   @keyframes ani {
     from {
-      transform: scale(0) translateY(50%);
+      transform: scale(0) translateY(200%);
     }
     to {
       transform: scale(1) translateY(-50%);
