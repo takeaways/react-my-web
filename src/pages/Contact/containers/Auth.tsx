@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { authService } from '../../../myFirebase'
+import { authService, firebaseInstance } from '../../../myFirebase'
 import { useUserDispatch, LOG_IN, useUserState } from '../contexts/UserContext'
 
 function Auth() {
-  const dispatch = useUserDispatch()
-  const userState = useUserState()
-  const history = useHistory()
-
   const [state, setState] = useState({
     email: '',
     password: '',
   })
-
-  const [newAccount, setNewAccount] = useState(false)
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target
     setState(prev => ({
@@ -24,8 +17,43 @@ function Auth() {
     }))
   }
 
+  const [newAccount, setNewAccount] = useState(false)
+  function handleNewAccount() {
+    setNewAccount(prev => !prev)
+  }
+  const [error, setError] = useState('')
+  const dispatch = useUserDispatch()
+  const userState = useUserState()
+  const history = useHistory()
+
+  async function handleSocialLogin(e: any) {
+    const {
+      target: { name },
+    } = e
+
+    if (name === 'google') {
+      const provider = new firebaseInstance.auth.GoogleAuthProvider()
+      const user = await authService.signInWithPopup(provider)
+      console.log(user)
+      if (dispatch) {
+        dispatch(LOG_IN(user))
+        history.push('/contact')
+      }
+    } else if (name === 'github') {
+      const provider = new firebaseInstance.auth.GithubAuthProvider()
+      const user = await authService.signInWithPopup(provider)
+      console.log(user)
+      if (dispatch) {
+        dispatch(LOG_IN(user))
+        history.push('/contact')
+      }
+    }
+  }
   useEffect(() => {
-    const user = authService.currentUser()
+    const user = authService.currentUser
+    if (user) {
+      history.push('/contact')
+    }
   }, [])
 
   return (
@@ -51,10 +79,10 @@ function Auth() {
             }
             if (dispatch) {
               dispatch(LOG_IN(user))
-              history.push('/contact/home')
+              history.push('/contact')
             }
           } catch (e) {
-            console.log(e)
+            setError(e.message)
           }
         }}
       >
@@ -75,10 +103,18 @@ function Auth() {
           required
         />
         <input type="submit" value={newAccount ? 'Create Account' : 'Login'} />
+        <span onClick={handleNewAccount}>
+          {newAccount ? 'Sign In' : 'Create Account'}
+        </span>
       </form>
+      {error}
       <div>
-        <button>Continue with Google</button>
-        <button>Continue with Github</button>
+        <button onClick={handleSocialLogin} name="google">
+          Continue with Google
+        </button>
+        <button onClick={handleSocialLogin} name="github">
+          Continue with Github
+        </button>
       </div>
     </div>
   )

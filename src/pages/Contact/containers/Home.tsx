@@ -3,6 +3,8 @@ import { authService } from '../../../myFirebase'
 
 import { Link, useHistory } from 'react-router-dom'
 import { useUserDispatch, LOG_IN } from '../contexts/UserContext'
+
+import ContactNav from '../components/ContactNav'
 function Home() {
   const dispatch = useUserDispatch()
   const history = useHistory()
@@ -10,12 +12,7 @@ function Home() {
   return (
     <div>
       Home Home
-      <div>
-        <Link to="/contact/auth">auth</Link>
-      </div>
-      <div>
-        <Link to="/contact/profile">profile</Link>
-      </div>
+      <ContactNav />
     </div>
   )
 }
