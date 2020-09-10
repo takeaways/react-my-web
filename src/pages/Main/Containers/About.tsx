@@ -70,11 +70,8 @@ export default function About() {
 }
 
 const Container = styled.article`
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  padding: 1rem;
   text-align: left;
+  height: 100%;
 
   h1 {
     text-align: center;
@@ -103,7 +100,7 @@ const Container = styled.article`
     margin: 0 1rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     .about__majors,
     .about__jobs {
       flex-direction: column;
@@ -126,6 +123,7 @@ const Content = styled.p`
   color: var(--color-red);
   margin: 4px 0;
   height: 54px;
+  text-align: center;
 
   overflow: hidden;
   text-overflow: ellipsis;

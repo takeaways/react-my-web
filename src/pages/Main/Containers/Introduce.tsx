@@ -33,12 +33,12 @@ export default function Introduce() {
 }
 
 const Container = styled.article`
-  height: 100%;
-  background: url('images/home_background.png');
+  border-radius: 15px;
+  background-image: url('images/home_background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  padding-bottom: 100%;
+  height: 100%;
 
   .modal {
     position: fixed;
@@ -63,24 +63,21 @@ const Container = styled.article`
 `
 
 const Content = styled.div`
-  color: var(--color-white);
-  display: relative;
+  height: 100%;
+  position: relative;
 `
 
 const H2 = styled.h2`
   position: absolute;
-  width: 80%;
-  border-radius: 10px;
-  font-size: 1.2em;
-  bottom: 20%;
-  left: calc(10%);
+  bottom: 50%;
+  width: 100%;
 
   @keyframes ani {
     from {
-      transform: scale(0);
+      transform: scale(0) translateY(50%);
     }
     to {
-      transform: scale(1);
+      transform: scale(1) translateY(-50%);
     }
   }
 
@@ -93,13 +90,18 @@ const H2 = styled.h2`
     left: 0;
     z-index: 1;
     margin: auto;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: var(--color-purple);
+    width: calc(200px);
+    height: calc(200px);
+    border-radius: 10vw;
+
+    background: url('images/mylogo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     animation: ani 3s alternate infinite;
   }
   .text {
+    font-size: calc(1rem + 2vw);
     mix-blend-mode: difference;
     position: absolute;
     top: 0;
@@ -108,7 +110,6 @@ const H2 = styled.h2`
     left: 0;
     z-index: 2;
     margin: auto;
-
     font-weight: bold;
     text-align: center;
     color: var(--color-purple);

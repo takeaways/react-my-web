@@ -1,5 +1,10 @@
 import React from 'react'
-
+import styled from 'styled-components'
 export default function Main({ children }: any) {
-  return <main>{children}</main>
+  return <Container>{children}</Container>
 }
+
+const Container = styled.main`
+  overflow: auto;
+  height: 100%;
+`

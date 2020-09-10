@@ -85,11 +85,7 @@ export default function Skills() {
   )
 }
 const Container = styled.article`
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  padding: 1rem;
-
+  /* height: 100%; */
   h1 {
     font-size: var(--font-large);
     font-weight: var(--weight-bold);
@@ -154,9 +150,8 @@ const Container = styled.article`
   .skillset__right {
     flex-basis: 60%;
     background-color: var(--color-red);
-
     .tools {
-      padding: 1rem 0;
+      padding: 20px 40px;
       background-color: var(--color-purple);
       .tools__list {
         margin: 1rem 0;
@@ -166,7 +161,7 @@ const Container = styled.article`
       }
     }
     .etc {
-      padding: 1rem 0;
+      padding: 20px 40px;
       background-color: var(--color-yellow);
       .etc__list {
         margin: 1rem 0;

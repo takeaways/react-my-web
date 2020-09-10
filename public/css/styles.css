@@ -33,9 +33,9 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
 #root {
   height: 100vh;
-  font-size: 1rem;
   display: grid;
 }
 
@@ -55,6 +55,5 @@
 @media screen and (max-width: 639px) {
   #root {
     grid-template-rows: 1fr 0.5fr 7fr 1fr;
-    min-width: 360px;
   }
 }

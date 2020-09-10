@@ -44,13 +44,6 @@ const Container = styled.nav`
   -webkit-box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
   -moz-box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
   box-shadow: inset 0px 0px 4px 1px rgba(212, 205, 246, 1);
-
-  form {
-    input {
-    }
-    button {
-    }
-  }
 `
 const List = styled.ul`
   /*  */
@@ -95,7 +88,7 @@ const Item = styled.li`
   }
 
   &.active {
-    color: var(--color-red);
+    color: var(--color-white);
     &::after {
       width: 100%;
       background-color: var(--color-red);
@@ -107,7 +100,7 @@ const LinkItem = styled(Link)`
   height: 100%;
   width: 100%;
   padding: 1em;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   font-weight: bold;
   text-align: center;
 `

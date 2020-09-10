@@ -7,7 +7,6 @@ function App() {
     <>
       <Header />
       <NavBar />
-      {/* <SideBar /> */}
       <Main>
         <MainRouter />
       </Main>
