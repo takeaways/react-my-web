@@ -1,7 +1,12 @@
 import React from 'react'
-
-function Contact() {
-  return <div>Contact Contact</div>
+import styled from 'styled-components'
+import Heading from '../../components/common/Heading'
+export default function Contact() {
+  return (
+    <Container>
+      <Heading heading="연락하기" />
+    </Container>
+  )
 }
 
-export default Contact
+const Container = styled.article``

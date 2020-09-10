@@ -37,13 +37,13 @@
    - 1. HTML과 Javascript를 혼합할 수 있게 하는, 자바스크립트의 상위 집합이다.
 
      ```jsx
-     import React from 'react';
+     import React from 'react'
      export default function App() {
-       return <h1 className="main">hello world</h1>;
+       return <h1 className="main">hello world</h1>
      }
 
      //
-     import React from 'react';
+     import React from 'react'
      export default function App() {
        return React.createElement(
          'h1',
@@ -51,7 +51,7 @@
            className: 'main',
          },
          'hello world',
-       );
+       )
      }
      ```
 
@@ -115,3 +115,5 @@
       - 텍스트 압축
    2. 렌더링 성능 최적화 (서비스를 느리게 동작하게 되는 js코드를 찾아서 최적화 하는 방법)
       - Bottleneck 코드 최적화
+
+### 파이어베이스
