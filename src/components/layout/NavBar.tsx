@@ -104,13 +104,10 @@ const Item = styled.li`
 `
 const LinkItem = styled(Link)`
   display: block;
-
+  height: 100%;
+  width: 100%;
   padding: 1em;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
-
-  &:hover {
-    color: white;
-  }
 `
