@@ -19,6 +19,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^5.1.2",
+    "@types/uuid": "^8.3.0",
     "antd": "^4.6.2",
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
@@ -41,7 +42,8 @@
     "styled-components": "^5.1.1",
     "styled-reset": "^4.2.2",
     "ts-node": "^9.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "todo": "nodemon --watch '*.ts' --exec 'ts-node' src/type-todo/index.ts",

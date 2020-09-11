@@ -28,7 +28,7 @@ export default function NavBar() {
         {Links.map(link => (
           <Item
             key={link.path}
-            className={`${link.path.includes(path) ? 'active' : null}`}
+            className={`${link.path === path ? 'active' : null}`}
           >
             <LinkItem to={link.path} data-link={link.path}>
               {link.label}
