@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { dbService, storageService } from '../../../myFirebase'
 
 export default function Post({ post, isOwner }: any) {
+  console.log(post)
+
   const [editing, setEditing] = useState(false)
   const [newPost, setNewPost] = useState(post.text)
 
@@ -9,8 +11,11 @@ export default function Post({ post, isOwner }: any) {
   function handleDelete() {
     const ok = window.confirm('삭제 하시겠습니까?')
     if (ok) {
+      console.log(post)
       dbService.doc(`posts/${post.id}`).delete()
-      storageService.refFromURL(post.attachmentUrl).delete()
+      if (post.attachmentUrl) {
+        storageService.refFromURL(post.attachmentUrl).delete()
+      }
     }
   }
 

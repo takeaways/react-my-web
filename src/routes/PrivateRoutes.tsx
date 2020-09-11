@@ -7,8 +7,8 @@ export default function PrivateRoutes(route: any) {
   const history = useHistory()
 
   useEffect(() => {
-    authService.onAuthStateChanged(info => {
-      if (!info) {
+    authService.onAuthStateChanged(user => {
+      if (!user) {
         history.push('/contact/auth')
       }
     })

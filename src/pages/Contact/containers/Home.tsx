@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuid4 } from 'uuid'
 import { authService, dbService, storageService } from '../../../myFirebase'
 
-import { useUserDispatch, LOG_IN, useUserState } from '../contexts/UserContext'
+import {
+  useUserDispatch,
+  LOG_IN,
+  useUserState,
+  TEST,
+} from '../contexts/UserContext'
 
 import ContactNav from '../components/ContactNav'
 import Post from '../components/Post'
 import { filterUser } from '../../../utils'
 
 function Home() {
-  const { user } = useUserState()
+  const { user, todo } = useUserState()
+  console.log('nonono ->< ', user)
   const dispatch = useUserDispatch()
 
   const [text, setText] = useState('')
@@ -19,6 +25,7 @@ function Home() {
   //TODO: SUBMIT_____________________________________________
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+
     if (!text.trim()) {
       setText('')
       return
@@ -30,6 +37,7 @@ function Home() {
       const response = await fileRef.putString(attachment, 'data_url')
       attachmentUrl = await response.ref.getDownloadURL()
     }
+
     const nPost = {
       text,
       createdAt: Date.now(),
@@ -58,6 +66,11 @@ function Home() {
     }
     reader.readAsDataURL(file)
   }
+
+  function test() {
+    console.log('s')
+    if (dispatch) dispatch(TEST('Hello world'))
+  }
   //TODO: USE EFFECTS_______________________________________________
   useEffect(() => {
     dbService.collection('posts').onSnapshot(snapshot => {
@@ -71,6 +84,7 @@ function Home() {
 
   useEffect(() => {
     authService.onAuthStateChanged(user => {
+      console.log(user)
       if (dispatch) dispatch(LOG_IN(filterUser({ user })))
     })
   }, [])
@@ -79,6 +93,7 @@ function Home() {
     <div>
       Home Home
       <ContactNav />
+      <button onClick={test}>test {todo}</button>
       <form onSubmit={handleSubmit}>
         <input type="file" accept="image/*" onChange={handleFile} />
         <input

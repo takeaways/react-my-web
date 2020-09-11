@@ -8,6 +8,7 @@ export interface User {
 }
 interface InitialState {
   user: User
+  todo?: string
 }
 
 const userObj = {
@@ -19,10 +20,12 @@ const userObj = {
 }
 const initialState: InitialState = {
   user: userObj,
+  todo: 'test',
 }
 
 const Login = 'LOG_IN' as const
 const Logout = 'LOG_OUT' as const
+const Test = 'Test' as const
 
 export const LOG_IN = (user: User) => ({
   type: Login,
@@ -35,13 +38,21 @@ export const LOG_OUT = () => ({
   type: Logout,
 })
 
-type UserAction = ReturnType<typeof LOG_IN> | ReturnType<typeof LOG_OUT>
+export const TEST = (text: string) => ({
+  type: Test,
+  payload: {
+    text,
+  },
+})
+
+type UserAction =
+  | ReturnType<typeof LOG_IN>
+  | ReturnType<typeof LOG_OUT>
+  | ReturnType<typeof TEST>
 
 function userReducer(state = initialState, action: UserAction) {
   if (action.type === 'LOG_IN') {
     const { user } = action.payload
-
-    console.log('LOG_ID>>> ', user)
     return {
       ...state,
       user,
@@ -51,6 +62,12 @@ function userReducer(state = initialState, action: UserAction) {
     return {
       ...state,
       user: userObj,
+    }
+  }
+  if (action.type === 'Test') {
+    return {
+      ...state,
+      todo: action.payload.text,
     }
   }
   return state
@@ -65,9 +82,6 @@ const UserDispatchContext = createContext<
 
 export default function UserContext({ children }: any) {
   const [state, dispatch] = useReducer(userReducer, initialState)
-
-  console.log('chant__', state)
-
   return (
     <UserStateContext.Provider value={state}>
       <UserDispatchContext.Provider value={dispatch}>

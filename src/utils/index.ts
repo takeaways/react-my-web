@@ -12,9 +12,14 @@ export function filterUser(info: any): User {
   const { user } = info
   if (!user) {
     return {
-      uid: '',
+      uid: '', //info.uid,
+      // displayName: info.displayName,
+      // email: info.email,
+      // phoneNumber: info.phoneNumber,
+      // photoURL: info.photoURL,
     }
   }
+  console.log('filterUser', info)
   const { displayName, email, uid, phoneNumber, photoURL } = user
   return { displayName, email, uid, phoneNumber, photoURL }
 }
