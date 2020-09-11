@@ -1,9 +1,14 @@
 import React from 'react'
 import ContactNav from '../components/ContactNav'
-import { authService } from 'myFirebase'
+import { authService } from '../../../myFirebase'
+import { useUserDispatch, LOG_OUT } from '../contexts/UserContext'
 
 function Profile() {
-  const onLogOutClick = () => authService.signOut()
+  const dispatch = useUserDispatch()
+  const onLogOutClick = () => {
+    if (dispatch) dispatch(LOG_OUT())
+    authService.signOut()
+  }
   return (
     <div>
       Profile Profile

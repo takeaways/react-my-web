@@ -1,13 +1,11 @@
 import React, { Suspense } from 'react'
+import { Switch, BrowserRouter as Router } from 'react-router-dom'
 
 import styled from 'styled-components'
 import Heading from '../../components/common/Heading'
 
-import { Switch, Route } from 'react-router-dom'
 import PrivateRoutes from '../../routes/PrivateRoutes'
 import PublicRoutes from '../../routes/PublicRoutes'
-
-import Auth from './containers/Auth'
 
 import UserContext from './contexts/UserContext'
 
@@ -15,6 +13,7 @@ export default function Contact({ routes }: any) {
   return (
     <UserContext>
       <Container>
+        <h1>HHHHHHH</h1>
         <Heading heading="연락하기" />
         <Suspense fallback={<h1>Loading....</h1>}>
           <Switch>
@@ -25,7 +24,6 @@ export default function Contact({ routes }: any) {
                 <PublicRoutes key={route.label} {...route} />
               ),
             )}
-            <Route component={() => <Auth />} />
           </Switch>
         </Suspense>
       </Container>

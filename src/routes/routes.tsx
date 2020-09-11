@@ -47,8 +47,8 @@ const routes = [
     component: lazy(() => import('../pages/Contact')),
     routes: [
       {
-        exact: true,
         path: '/contact',
+        exact: true,
         isPrivate: true,
         label: 'Contact/Home',
         component: lazy(() => import('../pages/Contact/containers/Home')),

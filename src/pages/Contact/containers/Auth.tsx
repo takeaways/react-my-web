@@ -4,7 +4,18 @@ import { useHistory } from 'react-router-dom'
 import { authService, firebaseInstance } from '../../../myFirebase'
 import { useUserDispatch, LOG_IN, useUserState } from '../contexts/UserContext'
 
-function Auth() {
+import { filterUser } from '../../../utils'
+
+export default function Auth() {
+  const dispatch = useUserDispatch()
+  const history = useHistory()
+  const { user } = useUserState()
+
+  console.log(user)
+
+  //TODO: LOGIN_________________________________________________
+  const [create, setCreate] = useState(false)
+  const [error, setError] = useState('')
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -16,98 +27,96 @@ function Auth() {
       [name]: value,
     }))
   }
-
-  const [newAccount, setNewAccount] = useState(false)
-  function handleNewAccount() {
-    setNewAccount(prev => !prev)
+  //TODO: SUBMIT_________________________________________________
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setState({ email: '', password: '' })
+    try {
+      let user
+      if (create) {
+        user = await authService.createUserWithEmailAndPassword(
+          state.email,
+          state.password,
+        )
+      } else {
+        user = await authService.signInWithEmailAndPassword(
+          state.email,
+          state.password,
+        )
+      }
+      if (dispatch) {
+        dispatch(LOG_IN(filterUser(user)))
+        history.push('/contact')
+      }
+    } catch (error) {
+      setError(error.message)
+    }
   }
-  const [error, setError] = useState('')
-  const dispatch = useUserDispatch()
-  const userState = useUserState()
-  const history = useHistory()
-
-  async function handleSocialLogin(e: any) {
+  //TODO: SOCIAL__________________________________________________
+  async function handleSocialLogin(event: any) {
     const {
       target: { name },
-    } = e
+    } = event
 
     if (name === 'google') {
       const provider = new firebaseInstance.auth.GoogleAuthProvider()
       const user = await authService.signInWithPopup(provider)
-      console.log(user)
       if (dispatch) {
-        dispatch(LOG_IN(user))
+        dispatch(LOG_IN(filterUser(user)))
         history.push('/contact')
       }
     } else if (name === 'github') {
       const provider = new firebaseInstance.auth.GithubAuthProvider()
       const user = await authService.signInWithPopup(provider)
-      console.log(user)
       if (dispatch) {
-        dispatch(LOG_IN(user))
+        dispatch(LOG_IN(filterUser(user)))
         history.push('/contact')
       }
     }
   }
+
   useEffect(() => {
-    const user = authService.currentUser
-    if (user) {
-      history.push('/contact')
-    }
+    authService.onAuthStateChanged(user => {
+      if (user) {
+        history.push('/contact')
+        if (dispatch) {
+          dispatch(LOG_IN(filterUser(user)))
+        }
+      }
+    })
   }, [])
 
   return (
     <div>
-      <form
-        onSubmit={async e => {
-          e.preventDefault()
-          setState({ email: '', password: '' })
-          try {
-            let user: any
-            if (newAccount) {
-              //create
-              user = await authService.createUserWithEmailAndPassword(
-                state.email,
-                state.password,
-              )
-            } else {
-              //login
-              user = await authService.signInWithEmailAndPassword(
-                state.email,
-                state.password,
-              )
-            }
-            if (dispatch) {
-              dispatch(LOG_IN(user))
-              history.push('/contact')
-            }
-          } catch (e) {
-            setError(e.message)
-          }
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <input
-          value={state.email}
-          name="email"
-          onChange={handleChange}
           type="text"
+          name="email"
           placeholder="Email"
+          value={state.email}
+          onChange={handleChange}
           required
         />
         <input
-          value={state.password}
-          name="password"
-          onChange={handleChange}
           type="password"
+          name="password"
           placeholder="Password"
+          value={state.password}
+          onChange={handleChange}
           required
         />
-        <input type="submit" value={newAccount ? 'Create Account' : 'Login'} />
-        <span onClick={handleNewAccount}>
-          {newAccount ? 'Sign In' : 'Create Account'}
-        </span>
+        <input type="submit" value={`${create ? 'Create Account' : 'Login'}`} />
+        <div>
+          <input
+            type="button"
+            value={`${create ? 'Login' : 'Create Account'} "하기"`}
+            onClick={() => {
+              setCreate(pre => !pre)
+            }}
+          />
+        </div>
       </form>
-      {error}
+      <div>{error}</div>
       <div>
         <button onClick={handleSocialLogin} name="google">
           Continue with Google
@@ -119,5 +128,3 @@ function Auth() {
     </div>
   )
 }
-
-export default Auth

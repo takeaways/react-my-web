@@ -8,6 +8,9 @@ function ContactNav() {
         <li>
           <Link to="/contact/profile">profile</Link>
         </li>
+        <li>
+          <Link to="/contact/auth">auth</Link>
+        </li>
       </ul>
     </nav>
   )
