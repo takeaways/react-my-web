@@ -68,21 +68,23 @@ export default function Post({ post, isOwner }: any) {
               <span>{post.text}</span>
             )}
           </p>
-          <footer>
-            <button type="button" onClick={handleEdit}>
-              {editing ? '취소' : '수정'}
-            </button>
-            <button
-              type={editing ? 'submit' : 'button'}
-              onClick={e => {
-                if (!editing) {
-                  handleDelete()
-                }
-              }}
-            >
-              {editing ? '수정' : '삭제'}
-            </button>
-          </footer>
+          {isOwner && (
+            <footer>
+              <button type="button" onClick={handleEdit}>
+                {editing ? '취소' : '수정'}
+              </button>
+              <button
+                type={editing ? 'submit' : 'button'}
+                onClick={e => {
+                  if (!editing) {
+                    handleDelete()
+                  }
+                }}
+              >
+                {editing ? '수정' : '삭제'}
+              </button>
+            </footer>
+          )}
         </div>
       </form>
     </Container>
