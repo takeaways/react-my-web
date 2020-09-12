@@ -10,6 +10,9 @@ import { useUserDispatch, LOG_IN, useUserState } from '../contexts/UserContext'
 import { filterUser } from '../../../utils'
 import Heading from '../../../components/common/Heading'
 
+const CREATE_ACCOUNT = '아이디 생성하기'
+const LOGIN = '로그인'
+
 export default function Auth() {
   const dispatch = useUserDispatch()
   const { user } = useUserState()
@@ -65,15 +68,16 @@ export default function Auth() {
       const user = await authService.signInWithPopup(provider)
       if (dispatch) {
         dispatch(LOG_IN(filterUser(user)))
+        history.push('/contact')
       }
     } else if (name === 'github') {
       const provider = new firebaseInstance.auth.GithubAuthProvider()
       const user = await authService.signInWithPopup(provider)
       if (dispatch) {
         dispatch(LOG_IN(filterUser(user)))
+        history.push('/contact')
       }
     }
-    history.push('/contact')
   }
 
   useEffect(() => {
@@ -111,7 +115,7 @@ export default function Auth() {
 
           <p>
             <button type="submit">
-              {`${create ? 'Create Account' : 'Login'}`}
+              {`${create ? CREATE_ACCOUNT : LOGIN} 😇`}
             </button>
             <button
               type="button"
@@ -120,7 +124,7 @@ export default function Auth() {
                 setCreate(pre => !pre)
               }}
             >
-              {`${create ? '로그인' : 'Create Account'} "하기"`}
+              {`💎 ${create ? LOGIN : CREATE_ACCOUNT}`}
             </button>
           </p>
 
@@ -128,14 +132,24 @@ export default function Auth() {
         </div>
       </form>
       <footer>
-        <button onClick={handleSocialLogin} name="google">
+        <button
+          type="button"
+          onClick={handleSocialLogin}
+          name="google"
+          id="google"
+        >
           Continue with{' '}
           <span className="btn-logo">
             <FcGoogle />
           </span>
           oogle
         </button>
-        <button onClick={handleSocialLogin} name="github">
+        <button
+          type="button"
+          onClick={handleSocialLogin}
+          name="github"
+          id="github"
+        >
           Continue with{' '}
           <span className="btn-logo">
             <FaGithubAlt />
@@ -178,6 +192,19 @@ const Container = styled.article`
       align-items: center;
       font-size: 1.5rem;
     }
+  }
+
+  button:hover {
+    border: 1px solid indigo;
+    /* color: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335); */
+  }
+
+  #google {
+    background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  }
+
+  #github {
+    background: linear-gradient(-120deg, #fff, #ddd, #fff, #ddd);
   }
 
   form {
