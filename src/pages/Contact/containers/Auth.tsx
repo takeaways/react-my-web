@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
+import { FcGoogle } from 'react-icons/fc'
+import { FaGithubAlt } from 'react-icons/fa'
 
 import { authService, firebaseInstance } from '../../../myFirebase'
 import { useUserDispatch, LOG_IN, useUserState } from '../contexts/UserContext'
 
 import { filterUser } from '../../../utils'
+import Heading from '../../../components/common/Heading'
 
 export default function Auth() {
   const dispatch = useUserDispatch()
-  const history = useHistory()
   const { user } = useUserState()
-
-  console.log('===============>>>>', user)
+  const history = useHistory()
 
   //TODO: LOGIN_________________________________________________
   const [create, setCreate] = useState(false)
@@ -63,68 +65,143 @@ export default function Auth() {
       const user = await authService.signInWithPopup(provider)
       if (dispatch) {
         dispatch(LOG_IN(filterUser(user)))
-        history.push('/contact')
       }
     } else if (name === 'github') {
       const provider = new firebaseInstance.auth.GithubAuthProvider()
       const user = await authService.signInWithPopup(provider)
       if (dispatch) {
         dispatch(LOG_IN(filterUser(user)))
-        history.push('/contact')
       }
     }
+    history.push('/contact')
   }
 
   useEffect(() => {
-    authService.onAuthStateChanged(user => {
-      if (user) {
-        history.push('/contact')
-        if (dispatch) {
-          dispatch(LOG_IN(filterUser(user)))
-        }
-      }
-    })
+    if (user.uid) {
+      history.push('/contact')
+    }
   }, [])
 
   return (
-    <div>
+    <Container>
+      <Heading heading="연락하기 로그인 페이지" />
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={state.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={state.password}
-          onChange={handleChange}
-          required
-        />
-        <input type="submit" value={`${create ? 'Create Account' : 'Login'}`} />
-        <div>
-          <input
-            type="button"
-            value={`${create ? 'Login' : 'Create Account'} "하기"`}
-            onClick={() => {
-              setCreate(pre => !pre)
-            }}
-          />
+        <div className="login-group">
+          <p className="error-text">{error}</p>
+          <p>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={state.email}
+              onChange={handleChange}
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={state.password}
+              onChange={handleChange}
+              required
+            />
+          </p>
+
+          <p>
+            <button type="submit">
+              {`${create ? 'Create Account' : 'Login'}`}
+            </button>
+            <button
+              type="button"
+              style={{ marginTop: '5px' }}
+              onClick={() => {
+                setCreate(pre => !pre)
+              }}
+            >
+              {`${create ? '로그인' : 'Create Account'} "하기"`}
+            </button>
+          </p>
+
+          <p></p>
         </div>
       </form>
-      <div>{error}</div>
-      <div>
+      <footer>
         <button onClick={handleSocialLogin} name="google">
-          Continue with Google
+          Continue with{' '}
+          <span className="btn-logo">
+            <FcGoogle />
+          </span>
+          oogle
         </button>
         <button onClick={handleSocialLogin} name="github">
-          Continue with Github
+          Continue with{' '}
+          <span className="btn-logo">
+            <FaGithubAlt />
+          </span>
+          ithub
         </button>
-      </div>
-    </div>
+      </footer>
+    </Container>
   )
 }
+
+const Container = styled.article`
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .error-text {
+    color: var(--color-red);
+  }
+
+  button {
+    height: 2rem;
+    outline: none;
+    border: none;
+    background-color: var(--color-red);
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-logo {
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+  }
+
+  form {
+    width: 350px;
+  }
+  form p {
+    height: 3rem;
+  }
+
+  form input {
+    width: 100%;
+    height: 2rem;
+    border-radius: 15px;
+    padding-left: 1rem;
+    outline: none;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  footer {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+  }
+`

@@ -34,7 +34,6 @@ function Profile() {
   }
 
   useEffect(() => {
-    console.log('----ß', authService.currentUser)
     getMyPosts()
   }, [user.uid])
 
@@ -51,7 +50,6 @@ function Profile() {
   return (
     <div>
       {user.email} Profile
-      <ContactNav />
       <button onClick={onLogOutClick}>log out</button>
       <div>
         <ul>

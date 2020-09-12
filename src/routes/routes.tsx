@@ -59,14 +59,6 @@ const routes = [
         component: lazy(() => import('../pages/Contact/containers/Auth')),
       },
       {
-        path: '/contact/editProfile',
-        label: 'Contact/EditProfile',
-        isPrivate: true,
-        component: lazy(
-          () => import('../pages/Contact/containers/EditProfile'),
-        ),
-      },
-      {
         path: '/contact/profile',
         label: 'Contact/Profile',
         isPrivate: true,
