@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuid4 } from 'uuid'
 import { dbService, storageService } from '../../../myFirebase'
+import { AiOutlineFileAdd } from 'react-icons/ai'
+import { FcAddImage } from 'react-icons/fc'
 
-import { useUserDispatch, useUserState, TEST } from '../contexts/UserContext'
+import { useUserState } from '../contexts/UserContext'
 
 import styled from 'styled-components'
 import Post from '../components/Post'
 import Heading from '../../../components/common/Heading'
 
 export default function Home() {
-  const { user, todo } = useUserState()
-  const dispatch = useUserDispatch()
-
+  const { user } = useUserState()
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [text, setText] = useState('')
   const [items, setItems] = useState<any>([])
   const [attachment, setAttachment] = useState('')
@@ -54,6 +55,8 @@ export default function Home() {
   function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files!
     const file = files[0]
+
+    console.log(',--->', file)
     const reader = new FileReader()
     reader.onloadend = (finishedEvent: any) => {
       setAttachment(finishedEvent.currentTarget.result)
@@ -61,10 +64,6 @@ export default function Home() {
     reader.readAsDataURL(file)
   }
 
-  function test() {
-    console.log('s')
-    if (dispatch) dispatch(TEST('Hello world'))
-  }
   //TODO: USE EFFECTS_______________________________________________
   useEffect(() => {
     dbService.collection('posts').onSnapshot(snapshot => {
@@ -80,25 +79,34 @@ export default function Home() {
     <Container>
       <Heading heading="게시글 리스트." />
       <form onSubmit={handleSubmit} className="form">
-        <div className="form-item-a">
+        <div className="form-item form-item-a">
           <p>
-            <input type="file" accept="image/*" onChange={handleFile} />
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFile}
+            />
           </p>
           <p>
             <input
               value={text}
               onChange={handleChange}
               type="text"
-              placeholder="what's on yout mind"
+              placeholder="오늘의 한 줄을 남겨보세요."
             />
             <input type="submit" value="전송" />
           </p>
         </div>
-        <div className="form-item-b">
-          2
-          {attachment && (
-            <>
-              <img src={attachment} width="50px" style={{ width: '50px' }} />
+        <div className="form-item form-item-b">
+          {attachment ? (
+            <p
+              style={{
+                height: '100%',
+                backgroundImage: `url(${attachment})`,
+                backgroundSize: 'cover',
+              }}
+            >
               <button
                 onClick={() => {
                   setAttachment('')
@@ -106,7 +114,15 @@ export default function Home() {
               >
                 cancel upload
               </button>
-            </>
+            </p>
+          ) : (
+            <span
+              onClick={e => {
+                fileInputRef.current?.click()
+              }}
+            >
+              <FcAddImage />
+            </span>
           )}
         </div>
       </form>
@@ -127,15 +143,90 @@ const Container = styled.article`
   flex-direction: column;
   align-items: center;
 
+  position: relative;
+
   .form {
     width: 100%;
     display: flex;
 
+    height: 10rem;
+
+    button {
+      text-transform: uppercase;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-red);
+      color: var(--color-light-purple);
+    }
+    button:hover {
+      color: var(--color-white);
+    }
+
+    input[type='file'] {
+      display: none;
+    }
+
+    .form-item {
+      height: 10rem;
+    }
     .form-item-a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      input[type='text'],
+      input[type='submit'] {
+        margin-top: 4px;
+        width: 100%;
+        outline: none;
+        border: 0.5px solid var(--color-yellow);
+      }
+      input[type='submit'] {
+        cursor: pointer;
+        background-color: var(--color-red);
+        border: 1px solid var(--color-yellow);
+      }
+      input[type='submit']:hover {
+        color: var(--color-white);
+      }
+      input[type='text'] {
+        padding-left: 1rem;
+      }
+    }
+
+    .form-item-b {
+      flex: 1;
+      position: relative;
+
+      span {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10vw;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media (max-width: 709px) {
+      flex-direction: column-reverse;
+      p {
+        width: 100%;
+        padding: 0 1rem;
+      }
     }
   }
 
   .list {
+    padding: 1rem 0;
     width: 100%;
     height: 100%;
 
