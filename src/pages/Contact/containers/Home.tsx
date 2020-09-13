@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuid4 } from 'uuid'
 import { dbService, storageService } from '../../../myFirebase'
-import { AiOutlineFileAdd } from 'react-icons/ai'
+import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai'
 import { FcAddImage } from 'react-icons/fc'
 
 import { useUserState } from '../contexts/UserContext'
@@ -56,7 +56,6 @@ export default function Home() {
     const files = e.target.files!
     const file = files[0]
 
-    console.log(',--->', file)
     const reader = new FileReader()
     reader.onloadend = (finishedEvent: any) => {
       setAttachment(finishedEvent.currentTarget.result)
@@ -71,7 +70,7 @@ export default function Home() {
         id: doc.id,
         ...doc.data(),
       }))
-      setItems(postList)
+      setItems(postList.sort((a: any, b: any) => b.createdAt - a.createdAt))
     })
   }, [])
 
@@ -134,6 +133,30 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <div className="controls">
+        <span
+          onClick={() => {
+            setItems((prev: any) => {
+              return [
+                ...prev.sort((a: any, b: any) => a.createdAt - b.createdAt),
+              ]
+            })
+          }}
+        >
+          <AiFillCaretUp />
+        </span>
+        <span
+          onClick={() => {
+            setItems((prev: any) => {
+              return [
+                ...prev.sort((a: any, b: any) => b.createdAt - a.createdAt),
+              ]
+            })
+          }}
+        >
+          <AiFillCaretDown />
+        </span>
+      </div>
     </Container>
   )
 }
@@ -240,6 +263,35 @@ const Container = styled.article`
     }
     @media (min-width: 1201px) {
       grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .controls {
+    position: fixed;
+    height: 2.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    top: 25rem;
+    left: 10px;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--color-red);
+      color: var(--color-white);
+      cursor: pointer;
+    }
+
+    span:hover {
+      opacity: 0.3;
+    }
+    span:active {
+      opacity: 0.8;
     }
   }
 `
