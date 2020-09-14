@@ -8,12 +8,13 @@ export default withRouter(function MovieNavBar(props: any) {
     <Container>
       <Heading heading="영화메뉴" />
       <ul>
-        <Item current={props.location.pathname === '/movie/tv'}>
-          <Link to="/movie/tv">TV</Link>
-        </Item>
         <Item current={props.location.pathname === '/movie'}>
           <Link to="/movie"> Home </Link>
         </Item>
+        <Item current={props.location.pathname === '/movie/tv'}>
+          <Link to="/movie/tv">TV</Link>
+        </Item>
+
         <Item current={props.location.pathname === '/movie/search'}>
           <Link to="/movie/search"> Search </Link>
         </Item>
