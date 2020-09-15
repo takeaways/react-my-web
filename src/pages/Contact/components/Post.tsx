@@ -7,7 +7,7 @@ export default function Post({ post, isOwner }: any) {
   const [editing, setEditing] = useState(false)
   const [newPost, setNewPost] = useState(post.text)
 
-  //TODO: DELETE___________________________________
+  //TODO: DELETE__________________________________
   function handleDelete() {
     const ok = window.confirm('삭제 하시겠습니까?')
     if (ok) {
