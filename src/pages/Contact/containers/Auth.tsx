@@ -18,7 +18,7 @@ export default function Auth() {
   const { user } = useUserState()
   const history = useHistory()
 
-  //TODO: LOGIN_________________________________________________
+  //TODO: LOGIN________________________________________________
   const [create, setCreate] = useState(false)
   const [error, setError] = useState('')
   const [state, setState] = useState({
