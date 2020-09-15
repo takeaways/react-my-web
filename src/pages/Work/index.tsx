@@ -2,32 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import './index.css'
 export default function Work(props: any) {
-  return (
-    <Container>
-      <header>
-        <div>1</div>
-        <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
-        </div>
-        <div>3</div>
-      </header>
-      <div className="flex-container">
-        <div className="flex-item">1111111</div>
-        <div className="flex-item">22222</div>
-        <div className="flex-item">3</div>
-        <div className="flex-item">444444</div>
-        <div className="flex-item">22222</div>
-        <div className="flex-item">3</div>
-        <div className="flex-item">444444</div>
-        <div className="flex-item">22222</div>
-        <div className="flex-item">3</div>
-        <div className="flex-item">444444</div>
-        <div className="flex-item">22222</div>
-        <div className="flex-item">3</div>
-        <div className="flex-item">444444</div>
-      </div>
-    </Container>
-  )
+  return <Container></Container>
 }
 
 const Container = styled.section`
