@@ -1,4 +1,4 @@
-# react-my-web 프론트 개발 즐기기!!
+# react-my-web 프론트 개발 즐기기
 
 ### create-react-app
 
