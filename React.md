@@ -8,3 +8,16 @@
 1. 페이스북에서 만든 자바스크립트 라이브러리 입니다.
 2. user interfaces를 만들 수 있는 UI라이브러리 입니다.
 3. MV(React)C
+4. Framework vs Libraries
+   - 이미 완성된 기능으로 구성된 기능제공 vs 내가 원하는 기능을 조합
+
+# React = components
+
+1. 리액트는 컴포넌트가 모여서 만들어진 user interface이다.
+2. 서로다른 컴포넌트를 조합해서 만들어 낸다.
+3. 컴포넌트도 DOM트리 처럼 트리가 만들어져 있다.
+   - cohesive building block
+4. 부모에서 자식으로 -> 렌더함수를 다시 호출하기 때문에 다시 호출된다.
+   - 가상 돔트리가 존재한다.(메모리에 존재)
+   - Virtual DOM Tree + previos Tre => DOM tree
+5. 데이터가 변경될 때 마다 re-render the whole app on every update
