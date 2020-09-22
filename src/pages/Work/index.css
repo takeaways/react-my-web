@@ -4,6 +4,7 @@ html {
   color: #555;
   line-height: 1.2;
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 body {
   background: #eee;
@@ -196,4 +197,56 @@ button {
 .habit-delete {
   font-size: 2rem;
   color: darkred;
+}
+
+/* TopBar */
+.nav {
+  font-size: 3rem;
+  padding-left: 3rem;
+  background-color: red;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+}
+
+.nav-count {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: darkseagreen;
+  text-align: center;
+  line-height: 3.5rem;
+}
+
+.habit-from {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  padding: 0 2vw;
+}
+
+.habit-from input[type='text'] {
+  display: inline-block;
+  height: 4vh;
+  width: 60vw;
+  border-radius: 5px;
+  margin-right: 4px;
+
+  font-size: 1.5rem;
+  outline: none;
+}
+.habit-from button[type='submit'] {
+  display: block;
+  width: 3rem;
+  height: 4vh;
+  border-radius: 5px;
+  color: white;
+  background-color: royalblue;
+}
+
+.list {
+  padding: 0 2rem;
 }

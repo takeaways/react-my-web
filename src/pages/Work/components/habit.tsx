@@ -1,23 +1,25 @@
 import React from 'react'
+import { IHabit } from '../types'
 
-export default class Habit extends React.Component<
-  {
-    habit: {
-      id: string
-      name: string
-      count: number
-    }
-    handleIncrement: (hibit: any) => void
-    handleDecrement: (hibit: any) => void
-    handleDelete: (hibit: any) => void
-  },
-  { count: number }
-> {
+interface IHabitProps {
+  habit: { id: string; name: string; count: number }
+  handleIncrement: (hibit: IHabit) => void
+  handleDecrement: (hibit: IHabit) => void
+  handleDelete: (hibit: IHabit) => void
+}
+export default class Habit extends React.Component<IHabitProps> {
+  onIncrement = () => {
+    this.props.handleIncrement(this.props.habit)
+  }
+  onDecremnet = () => {
+    this.props.handleDecrement(this.props.habit)
+  }
+  onDelete = () => {
+    this.props.handleDelete(this.props.habit)
+  }
+
   render() {
     const {
-      handleIncrement,
-      handleDecrement,
-      handleDelete,
       habit: { name, count },
     } = this.props
 
@@ -25,25 +27,13 @@ export default class Habit extends React.Component<
       <li className="habit">
         <span className="habit-name">{name}</span>
         <span className="habit-count">{count}</span>
-        <button
-          onClick={() => {
-            handleIncrement(this.props.habit)
-          }}
-        >
+        <button onClick={this.onIncrement}>
           <i className="habit-button fas fa-plus-square habit-increase"></i>
         </button>
-        <button
-          onClick={() => {
-            handleDecrement(this.props.habit)
-          }}
-        >
+        <button onClick={this.onDecremnet}>
           <i className="habit-button fas fa-minus-square habit-decrease"></i>
         </button>
-        <button
-          onClick={() => {
-            handleDelete(this.props.habit)
-          }}
-        >
+        <button onClick={this.onDelete}>
           <i className="habit-button fas fa-trash habit-delete"></i>
         </button>
       </li>
