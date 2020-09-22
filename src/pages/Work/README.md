@@ -7,3 +7,13 @@
    ```bash
    npx create-react-app 프로젝트이름
    ```
+
+## react-dom
+
+1. 브라우져는 HTML, CSS, JAVASCRIPT만 이해할 수 있다.
+2. render함수를 이용해서, 컴포넌트를 연결
+
+## JSX
+
+1. .jsx
+   - 자바스크립트 코드이며, javascript비즈니스 로직을 작성할 수 있다.
