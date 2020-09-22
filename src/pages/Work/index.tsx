@@ -48,6 +48,7 @@ export default class Work extends React.Component<{}, IState> {
         <TopBar count={habits.reduce((a, c) => a + c.count, 0)} />
         <Form handleSubmit={this.handleSubmit} />
         <button
+          className="reset-btn"
           onClick={() => {
             const habits = this.state.habits.map(h => {
               return {
