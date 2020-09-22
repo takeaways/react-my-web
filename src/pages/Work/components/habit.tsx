@@ -18,6 +18,14 @@ export default class Habit extends React.PureComponent<IHabitProps> {
     this.props.handleDelete(this.props.habit)
   }
 
+  componentDidMount() {
+    console.log('didMount')
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
+  }
+
   render() {
     const {
       habit: { name, count },
