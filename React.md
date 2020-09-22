@@ -42,3 +42,5 @@
    npx create-react-app
    npm start
    ```
+   - .gitigore
+     - 깃 버전관리 대상에 포함되지 않기를 원하는 파일의 이름을 적어준다.
