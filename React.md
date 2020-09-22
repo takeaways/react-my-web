@@ -70,3 +70,8 @@
 8. VSCode
    - Auto Import
    - Reactjs code snippets
+
+# React Class vs Function
+
+1. Component를 만드는 방법
+   - Class vs Function(16.8) React Hook
