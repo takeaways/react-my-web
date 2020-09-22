@@ -8,16 +8,12 @@ import './index.css'
 import { IHabit } from './types'
 
 interface IState {
-  habits: { id: string; name: string; count: number }[]
+  habits: { id: string; name: string; count: number }[] | []
 }
 
 export default class Work extends React.Component<{}, IState> {
   state = {
-    habits: [
-      { id: ui4(), name: 'React', count: 0 },
-      { id: ui4(), name: 'Texting', count: 0 },
-      { id: ui4(), name: 'Writing', count: 0 },
-    ],
+    habits: [{ id: ui4(), name: 'React', count: 0 }],
   }
 
   handleIncrement = (habit: IHabit) => {
