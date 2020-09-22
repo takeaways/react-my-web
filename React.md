@@ -53,3 +53,14 @@
    - 페이스북에서 만든 리액트 툴
 2. npm run eject
    - 숨겨져 있는 설정파일을 확인할 수 있다.
+3. BABEL
+   - javascript transcompiler
+   - convert ECAMScript 2015+ -> oreder version
+   - 최신의 코드를 오래된 자바스크립트로 만들어서 지원하는 브라우져 영역을 설정할 수 있디ㅏ.
+4. Webpck
+   - Bundling the code, Javascript Module bundler
+   - 변수나 이름을 다른 사람들이 못알아 보게 바꾸거나 javascript를 조금더 쉽게 serving 하기 위해서
+5. ESLint
+   - Checking your code
+6. Jest
+   - Unit Testing framework
