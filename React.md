@@ -21,3 +21,17 @@
    - 가상 돔트리가 존재한다.(메모리에 존재)
    - Virtual DOM Tree + previos Tre => DOM tree
 5. 데이터가 변경될 때 마다 re-render the whole app on every update
+
+# React Tools
+
+1. nodejs
+   - javascript 실행기
+   - Javascript everywhere
+   - server-side redering
+   - command line tools
+   - npm
+2. npm
+   - Package Manager
+   - Publish and share coure code of Node.js packages simplyfy installation, updating, and uninstallation of packages.
+   - package.json 버전의 정도가 들어 있습니다.
+     ㅜ
