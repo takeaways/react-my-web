@@ -38,3 +38,6 @@
    - facebook에서 만든 package's manager
 4. create react app
    - 페이스북에서 만든 리액트 툴!
+   ```bash
+   npx create-react-app
+   ```
