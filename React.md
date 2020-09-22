@@ -34,4 +34,7 @@
    - Package Manager
    - Publish and share coure code of Node.js packages simplyfy installation, updating, and uninstallation of packages.
    - package.json 버전의 정도가 들어 있습니다.
-     ㅜ
+3. yarn
+   - facebook에서 만든 package's manager
+4. create react app
+   - 페이스북에서 만든 리액트 툴!
