@@ -1,41 +1,49 @@
 import React from 'react'
 
 export default class Habit extends React.Component<
-  { name: string; count: number },
+  {
+    habit: {
+      id: string
+      name: string
+      count: number
+    }
+    handleIncrement: (hibit: any) => void
+    handleDecrement: (hibit: any) => void
+    handleDelete: (hibit: any) => void
+  },
   { count: number }
 > {
-  state = {
-    count: this.props.count,
-  }
-
-  handleIncreament = (event: React.MouseEvent<HTMLButtonElement>) => {
-    this.setState({
-      count: this.state.count + 1,
-    })
-  }
-  handleDecreament = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const count = this.state.count - 1
-
-    this.setState({
-      count: count < 0 ? 0 : count,
-    })
-  }
-
   render() {
-    const { count } = this.state
-    const { name } = this.props
+    const {
+      handleIncrement,
+      handleDecrement,
+      handleDelete,
+      habit: { name, count },
+    } = this.props
 
     return (
       <li className="habit">
         <span className="habit-name">{name}</span>
         <span className="habit-count">{count}</span>
-        <button onClick={this.handleIncreament}>
+        <button
+          onClick={() => {
+            handleIncrement(this.props.habit)
+          }}
+        >
           <i className="habit-button fas fa-plus-square habit-increase"></i>
         </button>
-        <button onClick={this.handleDecreament}>
+        <button
+          onClick={() => {
+            handleDecrement(this.props.habit)
+          }}
+        >
           <i className="habit-button fas fa-minus-square habit-decrease"></i>
         </button>
-        <button>
+        <button
+          onClick={() => {
+            handleDelete(this.props.habit)
+          }}
+        >
           <i className="habit-button fas fa-trash habit-delete"></i>
         </button>
       </li>
