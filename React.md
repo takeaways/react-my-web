@@ -40,4 +40,5 @@
    - 페이스북에서 만든 리액트 툴!
    ```bash
    npx create-react-app
+   npm start
    ```
