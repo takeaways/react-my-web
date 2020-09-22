@@ -1,3 +1,4 @@
+import { count } from 'console'
 import React from 'react'
 import { v4 as ui4 } from 'uuid'
 import Form from './components/form'
@@ -17,17 +18,25 @@ export default class Work extends React.Component<{}, IState> {
   }
 
   handleIncrement = (habit: IHabit) => {
-    const habits = [...this.state.habits]
-    const index = habits.indexOf(habit)
-    habits[index].count++
+    const habits = this.state.habits.map(item => {
+      if (item.id === habit.id) {
+        return { ...habit, count: habit.count + 1 }
+      }
+      return item
+    })
+
     this.setState({ habits })
   }
   handleDecrement = (habit: IHabit) => {
-    const habits = [...this.state.habits]
-    const index = habits.indexOf(habit)
-    if (habits[index].count > 0) {
-      habits[index].count--
-    }
+    const habits = this.state.habits.map(item => {
+      if (habit.id === item.id) {
+        return {
+          ...habit,
+          count: item.count > 0 ? item.count - 1 : 0,
+        }
+      }
+      return item
+    })
     this.setState({ habits })
   }
   handleDelete = (habit: IHabit) => {
@@ -51,10 +60,13 @@ export default class Work extends React.Component<{}, IState> {
           className="reset-btn"
           onClick={() => {
             const habits = this.state.habits.map(h => {
-              return {
-                ...h,
-                count: 0,
+              if (h.count !== 0) {
+                return {
+                  ...h,
+                  count: 0,
+                }
               }
+              return h
             })
             this.setState({ habits })
           }}

@@ -4,7 +4,7 @@ interface IFormProps {
   handleSubmit: (text: string) => void
 }
 
-export default class Form extends React.Component<IFormProps> {
+export default class Form extends React.PureComponent<IFormProps> {
   state = {
     inputValue: '',
   }

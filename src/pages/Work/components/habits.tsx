@@ -9,7 +9,7 @@ interface IHabits {
   handleDelete: (habit: IHabit) => void
 }
 
-export default class Habits extends React.Component<IHabits> {
+export default class Habits extends React.PureComponent<IHabits> {
   render() {
     const {
       habits,

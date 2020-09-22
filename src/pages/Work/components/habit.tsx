@@ -7,7 +7,7 @@ interface IHabitProps {
   handleDecrement: (hibit: IHabit) => void
   handleDelete: (hibit: IHabit) => void
 }
-export default class Habit extends React.Component<IHabitProps> {
+export default class Habit extends React.PureComponent<IHabitProps> {
   onIncrement = () => {
     this.props.handleIncrement(this.props.habit)
   }
