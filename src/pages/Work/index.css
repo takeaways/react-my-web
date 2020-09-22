@@ -161,10 +161,22 @@ button {
   background: mediumseagreen;
 }
 
+.list-item {
+  position: relative;
+}
 .habit {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  opacity: 0.8;
   border: 0;
   cursor: pointer;
+  background-color: white;
+
+  margin-bottom: 4rem;
+  height: 100px;
+  overflow: auto;
+  padding: 10px;
+  padding-right: 3rem;
+  border-radius: 6px;
 }
 .habit-count {
   display: inline-block;
@@ -173,11 +185,10 @@ button {
   width: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
-  margin-left: 0.2em;
-  margin-right: 0.5em;
-  background-color: darkseagreen;
+
+  background-color: #f7b01d;
   color: white;
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
 .habit-button {
@@ -192,18 +203,33 @@ button {
 
 .habit-increase,
 .habit-decrease {
-  color: goldenrod;
+  color: #f59f56;
 }
 .habit-delete {
   font-size: 2rem;
-  color: darkred;
+  color: #f59f56;
+}
+
+.habit-count {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+}
+.habit-controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  bottom: -2.6rem;
+  /* background-color: #1e1f22; */
 }
 
 /* TopBar */
 .nav {
   font-size: 3rem;
   padding-left: 3rem;
-  background-color: red;
+  background-color: #3dc03d;
+
   height: 10vh;
   display: flex;
   justify-content: flex-start;
@@ -211,21 +237,33 @@ button {
   color: white;
 }
 
+.nav header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .nav-count {
-  display: inline-block;
+  display: block;
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background-color: darkseagreen;
+  background-color: #3ab995;
   text-align: center;
   line-height: 3.5rem;
+  font-size: 2rem;
+  margin-left: 5px;
 }
 
 .habit-from {
+  background-color: #e9e9e9;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   height: 5vh;
   padding: 0 2vw;
+  z-index: 2;
 }
 
 .habit-from input[type='text'] {
@@ -234,9 +272,10 @@ button {
   width: 60vw;
   border-radius: 5px;
   margin-right: 4px;
-
+  padding-left: 1rem;
   font-size: 1.5rem;
   outline: none;
+  background-color: white;
 }
 .habit-from button[type='submit'] {
   display: block;
