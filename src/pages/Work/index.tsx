@@ -47,6 +47,19 @@ export default class Work extends React.Component<{}, IState> {
       <>
         <TopBar count={habits.reduce((a, c) => a + c.count, 0)} />
         <Form handleSubmit={this.handleSubmit} />
+        <button
+          onClick={() => {
+            const habits = this.state.habits.map(h => {
+              return {
+                ...h,
+                count: 0,
+              }
+            })
+            this.setState({ habits })
+          }}
+        >
+          reset
+        </button>
         <Habits
           habits={habits}
           handleIncrement={this.handleIncrement}
