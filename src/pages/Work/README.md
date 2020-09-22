@@ -17,3 +17,5 @@
 
 1. .jsx
    - 자바스크립트 코드이며, javascript비즈니스 로직을 작성할 수 있다.
+   - [Introducing JSX]('https://reactjs.org/docs/introducing-jsx.html')
+   - [JSX In Depth]('https://reactjs.org/docs/jsx-in-depth.html')
