@@ -42,5 +42,14 @@
    npx create-react-app
    npm start
    ```
-   - .gitigore
-     - 깃 버전관리 대상에 포함되지 않기를 원하는 파일의 이름을 적어준다.
+5. .gitigore
+   - 깃 버전관리 대상에 포함되지 않기를 원하는 파일의 이름을 적어준다.
+6. node_modules
+   - 프로젝트에서 사용중인 패키지
+
+# Hide React Tools
+
+1. create-react-app
+   - 페이스북에서 만든 리액트 툴
+2. npm run eject
+   - 숨겨져 있는 설정파일을 확인할 수 있다.
