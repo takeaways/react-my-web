@@ -19,3 +19,6 @@
    - 자바스크립트 코드이며, javascript비즈니스 로직을 작성할 수 있다.
    - [Introducing JSX]('https://reactjs.org/docs/introducing-jsx.html')
    - [JSX In Depth]('https://reactjs.org/docs/jsx-in-depth.html')
+2. state
+   - [브라우저 Event, MDN](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+   - [리액트 Handling Events](https://reactjs.org/docs/handling-events.htmlt)

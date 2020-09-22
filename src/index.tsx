@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-
+import '@fortawesome/fontawesome-free/js/all.js'
 // components
 import App from './App'
 // store
