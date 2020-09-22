@@ -67,3 +67,6 @@
 7. PostCss
    - expandable CSS libraries
      - tool for transforming CSS with Javascript
+8. VSCode
+   - Auto Import
+   - Reactjs code snippets
