@@ -27,7 +27,7 @@ export default class Habit extends React.PureComponent<IHabitProps> {
       <li className="list-item">
         <div className="habit">
           <span className="habit-name">{name}</span>
-          <span className="habit-count">{count}</span>
+          <span className="habit-count">{count}2</span>
           <div className="habit-controls">
             <button onClick={this.onIncrement}>
               <i className="habit-button fas fa-plus-square habit-increase"></i>
