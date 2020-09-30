@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Heading from '../../components/common/Heading'
+import SearchHeader from './components/search_header/search_header'
 import VideoList from './components/video_list/video_list'
 export default function Skill() {
   const [videos, setVideos] = useState([])
@@ -22,9 +23,12 @@ export default function Skill() {
   return (
     <Container>
       <Heading heading="YouTube" />
+      <SearchHeader />
       <VideoList videos={videos} />
     </Container>
   )
 }
 
-const Container = styled.article``
+const Container = styled.article`
+  padding: 20px;
+`
