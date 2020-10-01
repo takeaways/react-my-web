@@ -27,7 +27,7 @@
     "apollo-cache-inmemory": "^1.6.6",
     "axios": "^0.20.0",
     "chalk": "^4.1.0",
-    "firebase": "^7.19.1",
+    "firebase": "^7.21.1",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "nodemon": "^2.0.4",

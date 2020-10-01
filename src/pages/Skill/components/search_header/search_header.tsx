@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styles from './search_header.module.css'
-export default function SearchHeader({ onSearch }: any) {
+function SearchHeader({ onSearch }: any) {
   const inputRef = useRef<HTMLInputElement>(null)
   const handleSearch = () => {
     const value = inputRef.current!.value
@@ -35,3 +35,5 @@ export default function SearchHeader({ onSearch }: any) {
     </header>
   )
 }
+
+export default React.memo(SearchHeader)

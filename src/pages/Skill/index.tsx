@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useCallback } from 'react'
 import styled from 'styled-components'
 import { YoutubeServiceContext } from '../../App'
 import Heading from '../../components/common/Heading'
@@ -11,18 +11,18 @@ export default function Skill() {
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [videos, setVideos] = useState([])
 
-  const selectVideo = (video: any) => {
+  const selectVideo = useCallback((video: any) => {
     setSelectedVideo(video)
-  }
+  }, [])
 
-  const search = (query: any) => {
+  const search = useCallback((query: any) => {
     youtube
       ?.search(query) //
       .then((videos: any) => {
         setVideos(videos)
         setSelectedVideo(null)
       })
-  }
+  }, [])
 
   useEffect(() => {
     youtube

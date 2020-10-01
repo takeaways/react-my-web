@@ -7,6 +7,7 @@ export default function VideoDetail({ video }: any) {
         className={styles.video}
         // type="text/html"
         width="100%"
+        title="youtube player"
         height="500px"
         src={`https://www.youtube.com/embed/${video.id}`}
         frameBorder="0"
