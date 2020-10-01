@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
-import { YoutubeContext } from '../../App'
+import { YoutubeServiceContext } from '../../App'
 import Heading from '../../components/common/Heading'
 import SearchHeader from './components/search_header/search_header'
 import VideoList from './components/video_list/video_list'
 export default function Skill() {
-  const youtube = useContext(YoutubeContext)
+  const youtube = useContext(YoutubeServiceContext)
   const [videos, setVideos] = useState([])
   const search = (query: any) => {
     youtube
