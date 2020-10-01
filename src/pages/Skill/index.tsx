@@ -66,4 +66,10 @@ const Container = styled.article`
   .list {
     flex: 1 1 30%;
   }
+
+  @media screen and (max-width: 48rem) {
+    .content {
+      flex-direction: column;
+    }
+  }
 `
