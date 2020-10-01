@@ -8,7 +8,7 @@ import VideoDetail from './components/video_detail/video_detail'
 import VideoList from './components/video_list/video_list'
 export default function Skill() {
   const youtube = useContext(YoutubeServiceContext)
-  const [selectedVideo, setSelectedVideo] = useState()
+  const [selectedVideo, setSelectedVideo] = useState(null)
   const [videos, setVideos] = useState([])
 
   const selectVideo = (video: any) => {
@@ -18,7 +18,10 @@ export default function Skill() {
   const search = (query: any) => {
     youtube
       ?.search(query) //
-      .then((videos: any) => setVideos(videos))
+      .then((videos: any) => {
+        setVideos(videos)
+        setSelectedVideo(null)
+      })
   }
 
   useEffect(() => {
