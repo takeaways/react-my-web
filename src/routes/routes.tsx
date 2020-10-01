@@ -28,8 +28,15 @@ const routes = [
     props: {},
   },
   {
+    path: '/business',
+    label: 'Business',
+    component: lazy(() => import('../pages/Business')),
+    routes: [],
+    props: {},
+  },
+  {
     path: '/skill',
-    label: 'Skill',
+    label: 'Tube',
     component: lazy(() => import('../pages/Skill')),
     routes: [],
     props: {},
