@@ -1,4 +1,4 @@
-import myFirebase from 'myFirebase'
+import myFirebase from '../myFirebase'
 import firebase from 'firebase'
 
 class AuthService {
@@ -7,7 +7,7 @@ class AuthService {
       | 'GoogleAuthProvider'
       | 'GithubAuthProvider'
     const authProvider = new firebase.auth[privider]()
-    return firebase.auth().signInWithPopup(authProvider)
+    return myFirebase.auth().signInWithPopup(authProvider)
   }
 }
 
