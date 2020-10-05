@@ -8,12 +8,14 @@ import App from './App'
 import store from './stores'
 import GlobalStyles from './components/common/GlobalStyles'
 import { BrowserRouter } from 'react-router-dom'
+import Scroll from 'pages/Scroll'
 
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyles />
     <BrowserRouter>
-      <App />
+      {/* <App /> */}
+      <Scroll />
     </BrowserRouter>
   </Provider>,
   document.querySelector('#root'),

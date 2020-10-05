@@ -1,0 +1,74 @@
+.card {
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.2em 0;
+  max-width: 30rem;
+  width: 100%;
+  -webkit-box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.card.dark {
+  background-color: var(--color-black);
+  color: white;
+}
+
+.card.light {
+  background-color: var(--color-white);
+  color: black;
+}
+
+.card.colorful {
+  color: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    130deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(121, 9, 117, 0.17368421052631577) 54%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.avatar {
+  background-color: white;
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+  border-radius: 50%;
+}
+
+.info {
+  width: 100%;
+}
+
+.name,
+.company,
+.title,
+.email,
+.message {
+  margin: 0;
+  font-size: 0.8rem;
+  margin-bottom: 0.2em;
+}
+
+.name {
+  font-size: 1.2rem;
+}
+
+.company {
+  margin-bottom: 1em;
+}
+
+.company::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-color: wheat;
+  transform: translateY(0.5em);
+}

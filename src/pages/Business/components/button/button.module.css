@@ -1,0 +1,15 @@
+.button {
+  background-color: var(--color-red);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5em;
+  flex: 1 1 50%;
+  font-size: 0.8rem;
+  outline: 0;
+  border: 0;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

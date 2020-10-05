@@ -10,6 +10,7 @@ export default function MainRouter() {
         {routes.map(route =>
           false ? null : <PublicRoutes key={route.label} {...route} />,
         )}
+
         <Route component={() => <h1>Not Found</h1>} />
       </Switch>
     </Suspense>
