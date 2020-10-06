@@ -2,6 +2,8 @@
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input {
@@ -10,7 +12,8 @@
 
 .button {
   width: 100%;
-  background-color: var(--color-yellow);
+  height: 100%;
+
   font-weight: bold;
   cursor: pointer;
   border: 0;
@@ -18,7 +21,33 @@
   font-size: 0.8rem;
   color: white;
 }
+.button.red {
+  background-color: var(--color-purple);
+}
+.button.yellow {
+  background-color: var(--color-yellow);
+}
 
 .button:hover {
   opacity: 0.8;
+}
+
+.loading {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top: 3px solid var(--color-purple);
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

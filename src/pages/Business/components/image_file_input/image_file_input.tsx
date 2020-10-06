@@ -5,6 +5,8 @@ export default function ImageFileInput({
   name,
   onFileChange,
 }: any) {
+  const [loading, setLoading] = React.useState(false)
+
   const inputRef = React.useRef<HTMLInputElement>(null)
   const onButtonCloick = (e: any) => {
     e.preventDefault()
@@ -12,7 +14,9 @@ export default function ImageFileInput({
   }
 
   const onChange = async (event: any) => {
+    setLoading(true)
     const uploaded = await imageUploader.upload(event.target.files[0])
+    setLoading(false)
     onFileChange({
       name: uploaded.original_filename,
       url: uploaded.url,
@@ -28,9 +32,19 @@ export default function ImageFileInput({
         name="file"
         onChange={onChange}
       />
-      <button className={styles.button} onClick={onButtonCloick}>
-        {name || 'No file'}
-      </button>
+      {!loading && (
+        <button
+          className={`${styles.button} ${name ? styles.red : styles.yellow}`}
+          onClick={onButtonCloick}
+        >
+          {name || 'No file'}
+        </button>
+      )}
+      {loading && (
+        <>
+          <div className={`${styles.loading} ${styles.spin}`}></div>
+        </>
+      )}
     </div>
   )
 }
