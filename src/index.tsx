@@ -14,8 +14,8 @@ ReactDOM.render(
   <Provider store={store}>
     <GlobalStyles />
     <BrowserRouter>
-      {/* <App /> */}
-      <Scroll />
+      <App />
+      {/* <Scroll /> */}
     </BrowserRouter>
   </Provider>,
   document.querySelector('#root'),
