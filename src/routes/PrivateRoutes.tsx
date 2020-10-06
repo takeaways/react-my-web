@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Route, useHistory } from 'react-router-dom'
 import { authService } from '../myFirebase'
-import { useUserState } from '../pages/Contact/contexts/UserContext'
 
 export default function PrivateRoutes(route: any) {
   const history = useHistory()
@@ -12,7 +11,7 @@ export default function PrivateRoutes(route: any) {
         history.push('/contact/auth')
       }
     })
-  }, [])
+  }, [history])
 
   return (
     <Route

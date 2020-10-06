@@ -2,22 +2,13 @@ import React from 'react'
 import styles from './card.module.css'
 const DEFAULT_IMG = '/images/mylogo.png'
 function Card({ card }: any) {
-  const {
-    name,
-    company,
-    title,
-    email,
-    message,
-    theme,
-    fileName,
-    fileURL,
-  } = card
+  const { name, company, title, email, message, theme, fileURL } = card
 
   const url = fileURL || DEFAULT_IMG
 
   return (
     <li className={`${styles.card} ${getStyles(theme)}`}>
-      <img className={styles.avatar} src={url} alt="profile photo" />
+      <img className={styles.avatar} src={url} alt="profile" />
       <div className={styles.info}>
         <h1 className={styles.name}>{name}</h1>
         <p className={styles.company}>{company}</p>
@@ -38,8 +29,7 @@ function getStyles(theme: string) {
     case 'colorful':
       return styles.colorful
     default:
-      return styles.colorful
-    //   throw new Error('unknown ' + theme)
+      throw new Error('unknown ' + theme)
   }
 }
 export default Card

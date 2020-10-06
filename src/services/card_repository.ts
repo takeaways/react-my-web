@@ -3,7 +3,9 @@ class CardRepository {
   saveCard(userId: any, card: any) {
     myFirebase.database().ref(`${userId}/cards/${card.id}`).set(card)
   }
-  //   removeCard(userId: any, card: any) {}
+  removeCard(userId: any, card: any) {
+    myFirebase.database().ref(`${userId}/cards/${card.id}`).remove()
+  }
   syncCards(userId: any, onUpdate: Function) {
     const ref = myFirebase.database().ref(`${userId}/cards`)
     ref.on('value', snapshot => {

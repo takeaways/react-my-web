@@ -1,4 +1,3 @@
-import { count } from 'console'
 import React from 'react'
 import { v4 as ui4 } from 'uuid'
 import Form from './components/form'

@@ -15,20 +15,23 @@ export default function Skill() {
     setSelectedVideo(video)
   }, [])
 
-  const search = useCallback((query: any) => {
-    youtube
-      ?.search(query) //
-      .then((videos: any) => {
-        setVideos(videos)
-        setSelectedVideo(null)
-      })
-  }, [])
+  const search = useCallback(
+    (query: any) => {
+      youtube
+        ?.search(query) //
+        .then((videos: any) => {
+          setVideos(videos)
+          setSelectedVideo(null)
+        })
+    },
+    [youtube],
+  )
 
   useEffect(() => {
     youtube
       ?.mostPopular() //
       .then((videos: any) => setVideos(videos))
-  }, [])
+  }, [youtube])
 
   return (
     <Container>

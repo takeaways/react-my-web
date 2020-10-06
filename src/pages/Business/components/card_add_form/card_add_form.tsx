@@ -2,8 +2,6 @@ import React from 'react'
 import styles from './card_add_form.module.css'
 import Button from '../button/button'
 import { v4 as uuidv4 } from 'uuid'
-import ImageFileInput from '../image_file_input/image_file_input'
-import Card from '../card/card'
 
 function CardAddForm({ FileInput, onSubmit }: any) {
   const formRef = React.useRef<HTMLFormElement>(null)

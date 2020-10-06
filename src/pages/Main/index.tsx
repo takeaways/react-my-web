@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense, lazy, useEffect } from 'react'
+import React, { useRef, Suspense, lazy } from 'react'
 import styled from 'styled-components'
 
 const Introduce = lazy(() => import('./Containers/Introduce'))
@@ -17,11 +17,7 @@ const components = [
   <Contact />,
 ]
 
-const len = components.length
-
 export default React.memo(function Main() {
-  const [current, setCurrent] = useState(0)
-
   const container = useRef<HTMLUListElement>(null)
   return (
     <Container>

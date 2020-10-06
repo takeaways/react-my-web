@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import Header from '../header/header'
 import Footer from '../footer/footer'
 import styles from './login.module.css'
 import { useHistory } from 'react-router-dom'
 export default function Login({ authService }: any) {
   const history = useHistory()
-  const goToMaker = (uid: string) => {
-    history.push({
-      pathname: '/business/maker',
-      state: { id: uid },
-    })
-  }
+  const goToMaker = useCallback(
+    (uid: string) => {
+      history.push({
+        pathname: '/business/maker',
+        state: { id: uid },
+      })
+    },
+    [history],
+  )
   const onLogin = (e: any) => {
     authService //
       .login(e.currentTarget.textContent)
@@ -23,7 +26,7 @@ export default function Login({ authService }: any) {
       .onAuthChange((user: any) => {
         user && goToMaker(user.uid)
       })
-  }, [])
+  }, [authService, goToMaker])
   return (
     <section className={styles.login}>
       <Header />

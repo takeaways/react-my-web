@@ -226,6 +226,7 @@ const Container = styled.article`
 
     .form-item-b {
       flex: 1;
+      z-index: -1;
       position: relative;
 
       span {

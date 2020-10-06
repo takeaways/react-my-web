@@ -2,15 +2,16 @@ import React from 'react'
 import HomePresenter from './HomePresenter'
 
 function HomeContainer() {
-  const [state, setState] = React.useState({
+  const [state] = React.useState({
     nowPlaying: [],
     upcoming: [],
     popular: [],
     error: null,
     loading: true,
   })
+
   const { nowPlaying, upcoming, popular, error, loading } = state
-  React.useEffect(() => {}, [])
+
   return (
     <HomePresenter
       nowPlaying={nowPlaying}

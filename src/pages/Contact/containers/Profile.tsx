@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import ContactNav from '../components/ContactNav'
+import React, { useCallback, useEffect, useState } from 'react'
 import { authService, dbService } from '../../../myFirebase'
 import {
   useUserDispatch,
@@ -20,7 +19,7 @@ function Profile() {
     authService.signOut()
   }
 
-  const getMyPosts = async () => {
+  const getMyPosts = useCallback(async () => {
     dbService
       .collection('posts')
       .where('creatorId', '==', user.uid)
@@ -31,11 +30,11 @@ function Profile() {
         }))
         setMyPosts(postList)
       })
-  }
+  }, [user.uid])
 
   useEffect(() => {
     getMyPosts()
-  }, [user.uid])
+  }, [user.uid, getMyPosts])
 
   useEffect(() => {
     if (!user.uid) {
@@ -45,7 +44,7 @@ function Profile() {
         }
       })
     }
-  }, [])
+  }, [user.uid, dispatch])
 
   return (
     <div>

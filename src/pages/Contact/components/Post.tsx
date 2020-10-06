@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { dbService, storageService } from '../../../myFirebase'
-import Heading from '../../../components/common/Heading'
 
 export default function Post({ post, isOwner }: any) {
   const [editing, setEditing] = useState(false)
@@ -48,6 +47,7 @@ export default function Post({ post, isOwner }: any) {
           <p>
             {post.attachmentUrl && (
               <img
+                alt={'avatar'}
                 src={post.attachmentUrl}
                 style={{
                   width: '100%',

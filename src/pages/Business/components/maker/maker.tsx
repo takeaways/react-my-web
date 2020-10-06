@@ -23,7 +23,7 @@ function Maker({ FileInput, authService, cardRepository }: any) {
         history.push('/business')
       }
     })
-  }, [])
+  }, [authService, history])
 
   useEffect(() => {
     if (!userId) {
@@ -36,7 +36,7 @@ function Maker({ FileInput, authService, cardRepository }: any) {
     return () => {
       stopSync()
     }
-  }, [userId])
+  }, [userId, cardRepository])
 
   const createOrUpdateCard = (card: any) => {
     setCards((cards: any) => {
@@ -52,7 +52,7 @@ function Maker({ FileInput, authService, cardRepository }: any) {
       delete updated[card.id]
       return updated
     })
-    // cardRepository.removeCard(userId, card)
+    cardRepository.removeCard(userId, card)
   }
   return (
     <section className={styles.maker}>

@@ -1,5 +1,4 @@
 import axios from 'axios'
-const URL = `https://api.themoviedb.org/3/movie/popular?api_key=def604eb5a3e1c5dc74b8390a4fd10a3&language=en-US&page=1`
 
 const api = axios.create({
   baseURL: `https://api.themoviedb.org/3/`,

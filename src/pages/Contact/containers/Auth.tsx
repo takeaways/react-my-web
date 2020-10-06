@@ -84,7 +84,7 @@ export default function Auth() {
     if (user.uid) {
       history.push('/contact')
     }
-  }, [])
+  }, [user.uid, history])
 
   return (
     <Container>
