@@ -1,6 +1,7 @@
 .preview {
   flex-basis: 50%;
   background-color: white;
+  overflow-y: auto;
 }
 
 .title {

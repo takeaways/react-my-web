@@ -1,19 +1,9 @@
 import React from 'react'
 import styles from './card_edit_form.module.css'
 import Button from '../button/button'
-import ImageFileInput from '../image_file_input/image_file_input'
 
 function CardEditForm({ FileInput, card, updateCard, deleteCard }: any) {
-  const {
-    name,
-    company,
-    title,
-    email,
-    message,
-    theme,
-    fileName,
-    fileURL,
-  } = card
+  const { name, company, title, email, message, theme, fileName } = card
 
   const nameRef = React.useRef<HTMLInputElement>(null)
   const companyRef = React.useRef<HTMLInputElement>(null)

@@ -6,9 +6,11 @@ import styles from './business.module.css'
 import Maker from './components/maker/maker'
 import ImageUploader from 'services/image_uploader'
 import ImageFileInput from './components/image_file_input/image_file_input'
+import CardRepository from 'services/card_repository'
 
 const authService = new AuthService()
 const imageUploader = new ImageUploader()
+const cardRepository = new CardRepository()
 
 const FileInput = (props: any) => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
@@ -22,7 +24,11 @@ export default function Business() {
           <Login authService={authService} />
         </Route>
         <Route path="/business/maker">
-          <Maker FileInput={FileInput} authService={authService} />
+          <Maker
+            FileInput={FileInput}
+            authService={authService}
+            cardRepository={cardRepository}
+          />
         </Route>
       </Switch>
     </div>
