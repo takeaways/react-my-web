@@ -5,10 +5,10 @@ import styles from './maker.module.css'
 import { useHistory } from 'react-router-dom'
 import Editor from '../editor/editor'
 import Preview from '../preview/preview'
-function Maker({ authService }: any) {
+function Maker({ FileInput, authService }: any) {
   const [cards, setCards] = useState<any>({
-    '1': {
-      id: '1',
+    1: {
+      id: 1,
       name: 'GI',
       company: 'Naver',
       theme: 'light',
@@ -18,8 +18,8 @@ function Maker({ authService }: any) {
       fileName: 'Geonil',
       fileURL: '/images/my.png',
     },
-    '2': {
-      id: '2',
+    2: {
+      id: 2,
       name: 'GI',
       company: 'Naver',
       theme: 'dark',
@@ -44,8 +44,11 @@ function Maker({ authService }: any) {
 
   const createOrUpdateCard = (card: any) => {
     setCards((cards: any) => {
+      // console.log(cards)
+      console.log(card)
       const updated = { ...cards }
       updated[card.id] = card
+
       return updated
     })
   }
@@ -61,6 +64,7 @@ function Maker({ authService }: any) {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Editor
+          FileInput={FileInput}
           cards={cards}
           addCard={createOrUpdateCard}
           updateCard={createOrUpdateCard}

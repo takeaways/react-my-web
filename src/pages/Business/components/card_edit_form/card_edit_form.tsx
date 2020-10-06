@@ -3,7 +3,7 @@ import styles from './card_edit_form.module.css'
 import Button from '../button/button'
 import ImageFileInput from '../image_file_input/image_file_input'
 
-function CardEditForm({ card, updateCard, deleteCard }: any) {
+function CardEditForm({ FileInput, card, updateCard, deleteCard }: any) {
   const {
     name,
     company,
@@ -21,6 +21,14 @@ function CardEditForm({ card, updateCard, deleteCard }: any) {
   const titleRef = React.useRef<HTMLInputElement>(null)
   const emailRef = React.useRef<HTMLInputElement>(null)
   const messageRef = React.useRef<HTMLTextAreaElement>(null)
+
+  const onFileChange = (file: any) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    })
+  }
 
   const handleChange = (e: any) => {
     if (e.currentTarget == null) {
@@ -88,7 +96,7 @@ function CardEditForm({ card, updateCard, deleteCard }: any) {
         onChange={handleChange}
       ></textarea>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput name={fileName} onFileChange={onFileChange} />
       </div>
       <Button name={'Delete'} onClick={onSubmit} />
     </form>

@@ -3,10 +3,10 @@ import styles from './card_add_form.module.css'
 import Button from '../button/button'
 import { v4 as uuidv4 } from 'uuid'
 import ImageFileInput from '../image_file_input/image_file_input'
+import Card from '../card/card'
 
-function CardAddForm({ onSubmit }: any) {
+function CardAddForm({ FileInput, onSubmit }: any) {
   const formRef = React.useRef<HTMLFormElement>(null)
-
   const nameRef = React.useRef<HTMLInputElement>(null)
   const companyRef = React.useRef<HTMLInputElement>(null)
   const themeRef = React.useRef<HTMLSelectElement>(null)
@@ -14,24 +14,34 @@ function CardAddForm({ onSubmit }: any) {
   const emailRef = React.useRef<HTMLInputElement>(null)
   const messageRef = React.useRef<HTMLTextAreaElement>(null)
 
+  const [file, setFile] = React.useState({ fileName: null, fileURL: null })
+  const onFileChange = (file: any) => {
+    setFile({
+      fileName: file.name,
+      fileURL: file.url,
+    })
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const card = {
       id: uuidv4(),
-
       name: nameRef.current!.value || '',
       company: companyRef.current!.value || '',
       theme: themeRef.current!.value || 'light',
       title: titleRef.current!.value || '',
       email: emailRef.current!.value || '',
       message: messageRef.current!.value || '',
+      fileName: file.fileName || '',
+      fileURL: file.fileURL || '',
     }
     formRef.current!.reset()
+    setFile({ fileName: null, fileURL: null })
     onSubmit(card)
   }
 
   return (
-    <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
+    <form ref={formRef} className={styles.form}>
       <input
         className={styles.input}
         type="text"
@@ -72,9 +82,9 @@ function CardAddForm({ onSubmit }: any) {
         placeholder={'message'}
       ></textarea>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput name={file.fileName} onFileChange={onFileChange} />
       </div>
-      <Button name={'Add'} onClick={onSubmit} />
+      <Button name={'Add'} onClick={handleSubmit} />
     </form>
   )
 }
