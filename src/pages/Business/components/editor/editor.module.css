@@ -1,6 +1,7 @@
 .editor {
   flex-basis: 50%;
   background-color: white;
+  padding: 0.5em 2em;
 }
 
 .title {
