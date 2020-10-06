@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom'
 import Editor from '../editor/editor'
 import Preview from '../preview/preview'
 function Maker({ authService }: any) {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState<any>({
+    '1': {
       id: '1',
       name: 'GI',
       company: 'Naver',
@@ -18,7 +18,7 @@ function Maker({ authService }: any) {
       fileName: 'Geonil',
       fileURL: '/images/my.png',
     },
-    {
+    '2': {
       id: '2',
       name: 'GI',
       company: 'Naver',
@@ -29,18 +29,7 @@ function Maker({ authService }: any) {
       fileName: 'Geonil',
       fileURL: null,
     },
-    {
-      id: '3',
-      name: 'GI',
-      company: 'Naver',
-      theme: 'colorful',
-      title: 'FE Engineer',
-      email: 'jgi92@naver.com',
-      message: 'go to it',
-      fileName: 'Geonil',
-      fileURL: null,
-    },
-  ])
+  })
 
   const history = useHistory()
   const onLogout = () => {
@@ -53,15 +42,30 @@ function Maker({ authService }: any) {
     })
   }, [])
 
-  const addCard = (card: any) => {
-    const updated = [...cards, card]
-    setCards(updated)
+  const createOrUpdateCard = (card: any) => {
+    setCards((cards: any) => {
+      const updated = { ...cards }
+      updated[card.id] = card
+      return updated
+    })
+  }
+  const deleteCard = (card: any) => {
+    setCards((cards: any) => {
+      const updated = { ...cards }
+      delete updated[card.id]
+      return updated
+    })
   }
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} addCard={addCard} />
+        <Editor
+          cards={cards}
+          addCard={createOrUpdateCard}
+          updateCard={createOrUpdateCard}
+          deleteCard={deleteCard}
+        />
         <Preview cards={cards} />
       </div>
       <Footer />

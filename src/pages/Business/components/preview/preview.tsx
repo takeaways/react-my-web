@@ -6,8 +6,8 @@ export default function Preview({ cards }: any) {
     <section className={styles.preview}>
       <h1 className={styles.title}>Card Preview</h1>
       <ul className={styles.cards}>
-        {cards.map((card: any) => (
-          <Card key={card.id} card={card} />
+        {Object.keys(cards).map((key: any) => (
+          <Card key={key} card={cards[key]} />
         ))}
       </ul>
     </section>

@@ -6,8 +6,10 @@ import ImageFileInput from '../image_file_input/image_file_input'
 
 function CardAddForm({ onSubmit }: any) {
   const formRef = React.useRef<HTMLFormElement>(null)
-  const textRef = React.useRef<HTMLInputElement>(null)
+
+  const nameRef = React.useRef<HTMLInputElement>(null)
   const companyRef = React.useRef<HTMLInputElement>(null)
+  const themeRef = React.useRef<HTMLSelectElement>(null)
   const titleRef = React.useRef<HTMLInputElement>(null)
   const emailRef = React.useRef<HTMLInputElement>(null)
   const messageRef = React.useRef<HTMLTextAreaElement>(null)
@@ -16,8 +18,10 @@ function CardAddForm({ onSubmit }: any) {
     e.preventDefault()
     const card = {
       id: uuidv4(),
-      text: textRef.current!.value || '',
+
+      name: nameRef.current!.value || '',
       company: companyRef.current!.value || '',
+      theme: themeRef.current!.value || 'light',
       title: titleRef.current!.value || '',
       email: emailRef.current!.value || '',
       message: messageRef.current!.value || '',
@@ -31,7 +35,7 @@ function CardAddForm({ onSubmit }: any) {
       <input
         className={styles.input}
         type="text"
-        ref={textRef}
+        ref={nameRef}
         name="name"
         placeholder={'name'}
       />
@@ -42,7 +46,7 @@ function CardAddForm({ onSubmit }: any) {
         ref={companyRef}
         placeholder={'company'}
       />
-      <select className={styles.select} name="theme">
+      <select ref={themeRef} className={styles.select} name="theme">
         <option value="light">light</option>
         <option value="dark">dark</option>
         <option value="colorful">colorful</option>
