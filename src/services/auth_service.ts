@@ -1,4 +1,4 @@
-import myFirebase from '../myFirebase'
+import { authService } from '../myFirebase'
 import firebase from 'firebase'
 
 class AuthService {
@@ -7,11 +7,11 @@ class AuthService {
       | 'GoogleAuthProvider'
       | 'GithubAuthProvider'
     const authProvider = new firebase.auth[privider]()
-    return myFirebase.auth().signInWithPopup(authProvider)
+    return authService.signInWithPopup(authProvider)
   }
 
   logout() {
-    myFirebase.auth().signOut()
+    authService.signOut()
   }
 
   onAuthChange(onUserChange: any) {
