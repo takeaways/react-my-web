@@ -1,4 +1,5 @@
 import { realService } from 'myFirebase'
+
 class CardRepository {
   saveCard(userId: any, card: any) {
     realService.ref(`${userId}/cards/${card.id}`).set(card)
